@@ -37,16 +37,19 @@ public class Porudzbina implements Serializable {
   //ne treba many to many
  //treba one to many da ima stavku porudzbine, a u stavci many to one
 
+    //ovde da se nalazi one to many stavka porudzbine(kupovina)
+    @OneToMany( cascade =CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "porudzbina_id")
+    private Set<StavkaPorudzbine> stavkePorudzbina = new HashSet<>();
 
 
-
-   @ManyToMany
-    @JoinTable(name = "kupovina",
-        joinColumns = @JoinColumn(name = "porudzbina_id", referencedColumnName = "uuid"),
-        inverseJoinColumns = @JoinColumn(name = "artikal_id", referencedColumnName = "id")
-    )
-
-    private Set<Artikal> poruceniArtikal = new HashSet<>();
+//    @ManyToMany
+//    @JoinTable(name = "kupovina",
+//        joinColumns = @JoinColumn(name = "porudzbina_id", referencedColumnName = "uuid"),
+//        inverseJoinColumns = @JoinColumn(name = "artikal_id", referencedColumnName = "id")
+//    )
+//
+//    private Set<Artikal> poruceniArtikal = new HashSet<>();
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Restoran restoran;
@@ -73,9 +76,9 @@ public class Porudzbina implements Serializable {
 //        this.id = id;
 //    }
 
-    public Set<Artikal> getPoruceniArtikal() {return poruceniArtikal;}
+  //  public Set<Artikal> getPoruceniArtikal() {return poruceniArtikal;}
 
-    public void setPoruceniArtikal(Set<Artikal> poruceniArtikal) {this.poruceniArtikal = poruceniArtikal;}
+  //  public void setPoruceniArtikal(Set<Artikal> poruceniArtikal) {this.poruceniArtikal = poruceniArtikal;}
 
     public Restoran getRestoran() {return restoran;}
 
@@ -100,7 +103,7 @@ public class Porudzbina implements Serializable {
     public Porudzbina(double cena, Status status) {
 //        this.id=id;
         //this.uuid = uuid;
-        this.poruceniArtikal = poruceniArtikal;
+       // this.poruceniArtikal = poruceniArtikal;
         this.restoran = restoran;
         this.vremePorudzbine = vremePorudzbine;
         this.cena = cena;

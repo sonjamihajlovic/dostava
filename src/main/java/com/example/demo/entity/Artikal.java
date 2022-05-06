@@ -28,8 +28,8 @@ public class Artikal implements Serializable {
     @Column
     public String opis;
 
-   @ManyToMany(mappedBy = "poruceniArtikal")
-    private Set<Porudzbina> svePorudzbine = new HashSet<>();
+   //@ManyToMany(mappedBy = "poruceniArtikal")
+  //  private Set<Porudzbina> svePorudzbine = new HashSet<>();
 
 
     public Long getId() {return id;}
@@ -56,9 +56,9 @@ public class Artikal implements Serializable {
 
     public void setOpis(String opis) {this.opis = opis;}
 
-    public Set<Porudzbina> getSvePorudzbine() {return svePorudzbine;}
+    //public Set<Porudzbina> getSvePorudzbine() {return svePorudzbine;}
 
-    public void setSvePorudzbine(Set<Porudzbina> svePorudzbine) {this.svePorudzbine = svePorudzbine;}
+    //public void setSvePorudzbine(Set<Porudzbina> svePorudzbine) {this.svePorudzbine = svePorudzbine;}
 
     public Artikal(Long id, String naziv, double cena, TipArtikla tip, double kolicina, String opis) {
         this.id = id;
