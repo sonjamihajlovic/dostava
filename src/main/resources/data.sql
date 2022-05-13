@@ -42,3 +42,4 @@ INSERT INTO KOMENTAR(ocena, text, kupac_id, restoran_id) VALUES ('3', 'Solidno a
 INSERT INTO STAVKA_PORUDZBINE (kolicina, artikal_id,porudzbina_id) VALUES(5,  1, 'd6acb2a2509a4a86a28d388b9a385839');
 INSERT INTO STAVKA_PORUDZBINE (kolicina, artikal_id,porudzbina_id) VALUES(5,  1, 'd9acb2a2509a4a86a28d388b9a385839');
 INSERT INTO STAVKA_PORUDZBINE (kolicina, artikal_id,porudzbina_id) VALUES(5,  1, 'b4acb2a2509a4a86a28d388b9a385839');
+INSERT INTO STAVKA_PORUDZBINE (kolicina, artikal_id,porudzbina_id) VALUES(5,  1, 'b5acb2a2509a4a86a28d388b9a385839');
