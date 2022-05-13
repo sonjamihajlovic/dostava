@@ -34,16 +34,11 @@ INSERT INTO KOMENTAR(ocena, text, kupac_id, restoran_id) VALUES ('1', 'Izuzetno 
 INSERT INTO KOMENTAR(ocena, text, kupac_id, restoran_id) VALUES ('3', 'Solidno ali nista specijalno.', 1, 3);
 
  INSERT INTO PORUDZBINA (uuid, cena, status, vreme_porudzbine, restoran_id, kupac_id) VALUES ('b5acb2a2509a4a86a28d388b9a385839','800', 'CEKA_DOSTAVLJACA','2022-02-02 15:05:00.000000', 2, 1);
--- INSERT INTO PORUDZBINA (cena, status, vreme_porudzbine, restoran_id, kupac_id) VALUES('500', 'DOSTAVLJENA','2022-03-02 18:05:00.000000', 3, 1);
--- INSERT INTO PORUDZBINA (cena, status, vreme_porudzbine, restoran_id, kupac_id) VALUES('850', 'U_PRIPREMI','2022-08-02 20:05:00.000000', 1, 1);
--- INSERT INTO PORUDZBINA (cena, status, vreme_porudzbine, restoran_id, kupac_id) VALUES('590', 'U_PRIPREMI','2022-01-02 10:05:00.000000', 5, 1);
--- INSERT INTO PORUDZBINA (cena, status, vreme_porudzbine, restoran_id, kupac_id) VALUES('700', 'U_TRANSPORTU','2021-08-02 20:05:00.000000', 4, 2);
+ INSERT INTO PORUDZBINA (uuid, cena, status, vreme_porudzbine, restoran_id, kupac_id) VALUES('d5acb2a2509a4a86a28d388b9a385839','500', 'DOSTAVLJENA','2022-03-02 18:05:00.000000', 3, 1);
+ INSERT INTO PORUDZBINA (uuid, cena, status, vreme_porudzbine, restoran_id, kupac_id) VALUES('b4acb2a2509a4a86a28d388b9a385839','850', 'U_PRIPREMI','2022-08-02 20:05:00.000000', 1, 1);
+ INSERT INTO PORUDZBINA (uuid, cena, status, vreme_porudzbine, restoran_id, kupac_id) VALUES('d6acb2a2509a4a86a28d388b9a385839', '590', 'U_PRIPREMI','2022-01-02 10:05:00.000000', 5, 1);
+ INSERT INTO PORUDZBINA (uuid, cena, status, vreme_porudzbine, restoran_id, kupac_id) VALUES('d9acb2a2509a4a86a28d388b9a385839', '700', 'U_TRANSPORTU','2021-08-02 20:05:00.000000', 4, 2);
 
--- INSERT INTO KUPOVINA (porudzbina_id, artikal_id) VALUES(1,  1);
--- INSERT INTO KUPOVINA (porudzbina_id, artikal_id) VALUES (1, 3);
--- INSERT INTO KUPOVINA (porudzbina_id, artikal_id) VALUES (2, 4);
--- INSERT INTO KUPOVINA (porudzbina_id, artikal_id) VALUES (2, 5);
--- INSERT INTO KUPOVINA (porudzbina_id, artikal_id) VALUES (3, 2);
--- INSERT INTO KUPOVINA (porudzbina_id, artikal_id) VALUES (4, 6);
--- INSERT INTO KUPOVINA (porudzbina_id, artikal_id) VALUES (4, 5);
--- INSERT INTO KUPOVINA (porudzbina_id, artikal_id) VALUES (5, 7);
+INSERT INTO STAVKA_PORUDZBINE (kolicina, artikal_id,porudzbina_id) VALUES(5,  1, 'd6acb2a2509a4a86a28d388b9a385839');
+INSERT INTO STAVKA_PORUDZBINE (kolicina, artikal_id,porudzbina_id) VALUES(5,  1, 'd9acb2a2509a4a86a28d388b9a385839');
+INSERT INTO STAVKA_PORUDZBINE (kolicina, artikal_id,porudzbina_id) VALUES(5,  1, 'b4acb2a2509a4a86a28d388b9a385839');
