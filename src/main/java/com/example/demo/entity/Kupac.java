@@ -13,6 +13,9 @@ public class Kupac extends Korisnik implements Serializable {
     @ManyToOne(fetch = FetchType.EAGER)
     public  TipKupca tipkupca;
 
+    public Kupac(Korisnik korisnik) {
+    }
+
     public TipKupca getTipkupca() {
         return tipkupca;
     }

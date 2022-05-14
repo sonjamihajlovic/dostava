@@ -35,6 +35,11 @@ public class Korisnik implements Serializable {
     @Enumerated(EnumType.STRING)
     private Uloga uloga;
 
+    private boolean aktivan;
+
+    public Korisnik(Long id, String korisnickoIme, String prezime, String lozinka, String ime, Pol pol, String datum, Uloga uloga, boolean aktivan) {
+    }
+
     public Long getId() {return id;}
 
     public void setId(Long id) {this.id = id;}
@@ -93,5 +98,13 @@ public class Korisnik implements Serializable {
                 ", datum='" + datum + '\'' +
                 ", uloga=" + uloga +
                 '}';
+    }
+
+    public boolean isAktivan() {
+        return aktivan;
+    }
+
+    public void setAktivan(boolean aktivan) {
+        this.aktivan = aktivan;
     }
 }

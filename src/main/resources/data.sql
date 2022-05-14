@@ -14,12 +14,12 @@ INSERT INTO RESTORAN(naziv, tip_restorana, lokacija_id) VALUES ('Tortilja', 'MEK
 INSERT INTO RESTORAN(naziv, tip_restorana, lokacija_id) VALUES ('Jing Jang', 'KINESKI', 4);
 INSERT INTO RESTORAN(naziv, tip_restorana, lokacija_id) VALUES ('Sarmica', 'SRPSKI', 5);
 
-INSERT INTO KORISNIK (dtype, korisnicko_ime, lozinka, ime, prezime, pol, datum, uloga, tipKupca_id) VALUES ('Kupac','tica', '123123', 'Tijana', 'Varadjanin', 'ZENSKI', '2001-12-18', 'KUPAC',1);
-INSERT INTO KORISNIK (dtype, korisnicko_ime, lozinka, ime, prezime, pol, datum, uloga) VALUES ('Dostavljac', 'pera', '567', 'Petar', 'Petrovic', 'MUSKI', '1999-11-01', 'DOSTAVLJAC');
-INSERT INTO KORISNIK (dtype, korisnicko_ime, lozinka, ime, prezime, pol, datum, uloga, restoran_id) VALUES ('Menadzer', 'luka', 'm222', 'Luka', 'Lukovic', 'MUSKI', '1994-02-03', 'MENADZER', 1);
-INSERT INTO KORISNIK (dtype, korisnicko_ime, lozinka, ime, prezime, pol, datum, uloga, tipKupca_id) VALUES ('Kupac', 'sofi', '2233', 'Sofija', 'Mitic', 'ZENSKI', '1998-09-03', 'KUPAC', 2);
-INSERT INTO KORISNIK (dtype, korisnicko_ime, lozinka, ime, prezime, pol, datum, uloga, restoran_id) VALUES ('Menadzer', 'miki', 'gggg', 'Mirko', 'Mirkic', 'MUSKI', '2000-04-03', 'MENADZER', 4);
-INSERT INTO KORISNIK (dtype, korisnicko_ime, lozinka, ime, prezime, pol, datum, uloga) VALUES ('Admin','ivka', '456cao', 'Ivana', 'Mirkovic', 'ZENSKI', '1987-10-18', 'ADMIN');
+INSERT INTO KORISNIK (aktivan, dtype, korisnicko_ime, lozinka, ime, prezime, pol, datum, uloga, tipKupca_id) VALUES (true,'Kupac','tica', '123123', 'Tijana', 'Varadjanin', 'ZENSKI', '2001-12-18', 'KUPAC',1);
+INSERT INTO KORISNIK (aktivan, dtype, korisnicko_ime, lozinka, ime, prezime, pol, datum, uloga) VALUES (true,'Dostavljac', 'pera', '567', 'Petar', 'Petrovic', 'MUSKI', '1999-11-01', 'DOSTAVLJAC');
+INSERT INTO KORISNIK (aktivan, dtype, korisnicko_ime, lozinka, ime, prezime, pol, datum, uloga, restoran_id) VALUES (true,'Menadzer', 'luka', 'm222', 'Luka', 'Lukovic', 'MUSKI', '1994-02-03', 'MENADZER', 1);
+INSERT INTO KORISNIK (aktivan, dtype, korisnicko_ime, lozinka, ime, prezime, pol, datum, uloga, tipKupca_id) VALUES (true,'Kupac', 'sofi', '2233', 'Sofija', 'Mitic', 'ZENSKI', '1998-09-03', 'KUPAC', 2);
+INSERT INTO KORISNIK (aktivan, dtype, korisnicko_ime, lozinka, ime, prezime, pol, datum, uloga, restoran_id) VALUES (false,'Menadzer', 'miki', 'gggg', 'Mirko', 'Mirkic', 'MUSKI', '2000-04-03', 'MENADZER', 4);
+INSERT INTO KORISNIK (aktivan, dtype, korisnicko_ime, lozinka, ime, prezime, pol, datum, uloga) VALUES (false,'Admin','ivka', '456cao', 'Ivana', 'Mirkovic', 'ZENSKI', '1987-10-18', 'ADMIN');
 
 INSERT INTO ARTIKAL (naziv, cena, tip, kolicina, opis) VALUES ('Pasta sa 4 vrste sira', '600', 'JELO', '250', 'Originalna italijanska pasta!');
 INSERT INTO ARTIKAL (naziv, cena, tip, kolicina, opis) VALUES ('Marinirana bela riba', '850', 'JELO', '200', 'Uz prilog-bareni krompir i salatu!');
