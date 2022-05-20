@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.KorisnikDto;
+import com.example.demo.entity.Dostavljac;
 import com.example.demo.entity.Korisnik;
 import com.example.demo.entity.Menadzer;
 import com.example.demo.entity.Uloga;
@@ -81,21 +82,16 @@ public class AdminController {
         return ResponseEntity.ok(izlaz);
     }
 
+    @PostMapping("/api/add-dostavljaca")
+    public ResponseEntity dodaj_dostavljaca(@RequestBody Korisnik korisnik, HttpSession session){
+        Korisnik logovani = (Korisnik) session.getAttribute("korisnik");
+        if(logovani.getUloga() != Uloga.ADMIN || logovani == null) {
+            return new ResponseEntity("Nemate prava da dodate dostavljaca", HttpStatus.FORBIDDEN);
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        Dostavljac dostavljac = new Dostavljac(korisnik);
+        dostavljacService.save(dostavljac);
+        return new ResponseEntity("Dodali ste dostavljaca", HttpStatus.CREATED);
+    }
 
 }
