@@ -119,7 +119,7 @@ public class KorisnikController {
         return "Korisnik " + newDto.getKorisnickoIme() + " je uspesno registrovan";
     }
 
-    /*editovanje korisnika
+    //editovanje korisnika
     @PutMapping("/api/korisnik/edit")
     public String editKorisnik(@RequestBody Korisnik korisnik) {
         Korisnik editKorisnik = korisnikService.getByKorisnickoIme(korisnik.getKorisnickoIme());
@@ -130,6 +130,6 @@ public class KorisnikController {
         editKorisnik.setPol(korisnik.getPol());
         this.korisnikService.save(editKorisnik);
         return "Uspesno sacuvan korisnik!";
-    }*/
+    }
 
 }
