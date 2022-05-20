@@ -1,6 +1,7 @@
 INSERT INTO TIP_KUPCA(ime, procenat) VALUES ('ZLATNI', 15);
 INSERT INTO TIP_KUPCA(ime, procenat) VALUES ('SREBRNI', 10);
 INSERT INTO TIP_KUPCA(ime, procenat) VALUES ('BRONZANI', 5);
+INSERT INTO TIP_KUPCA(ime, procenat) VALUES ('REGULARNI', 0);
 
 INSERT INTO LOKACIJA(adresa, geografska_duzina, geografska_sirina) VALUES ('Djure Jaksica 45', 56, 78);
 INSERT INTO LOKACIJA(adresa, geografska_duzina, geografska_sirina) VALUES ('Mite Mitica 145', 58, 79);
@@ -33,11 +34,11 @@ INSERT INTO KOMENTAR(ocena, text, kupac_id, restoran_id) VALUES ('5', 'Odlicna h
 INSERT INTO KOMENTAR(ocena, text, kupac_id, restoran_id) VALUES ('1', 'Izuzetno losa usluga, neljubazno osoblje.', 2, 4);
 INSERT INTO KOMENTAR(ocena, text, kupac_id, restoran_id) VALUES ('3', 'Solidno ali nista specijalno.', 1, 3);
 
- INSERT INTO PORUDZBINA (uuid, cena, status, vreme_porudzbine, restoran_id, kupac_id) VALUES ('b5acb2a2509a4a86a28d388b9a385839','800', 'CEKA_DOSTAVLJACA','2022-02-02 15:05:00.000000', 2, 1);
- INSERT INTO PORUDZBINA (uuid, cena, status, vreme_porudzbine, restoran_id, kupac_id) VALUES('d5acb2a2509a4a86a28d388b9a385839','500', 'DOSTAVLJENA','2022-03-02 18:05:00.000000', 3, 1);
- INSERT INTO PORUDZBINA (uuid, cena, status, vreme_porudzbine, restoran_id, kupac_id) VALUES('b4acb2a2509a4a86a28d388b9a385839','850', 'U_PRIPREMI','2022-08-02 20:05:00.000000', 1, 1);
- INSERT INTO PORUDZBINA (uuid, cena, status, vreme_porudzbine, restoran_id, kupac_id) VALUES('d6acb2a2509a4a86a28d388b9a385839', '590', 'U_PRIPREMI','2022-01-02 10:05:00.000000', 5, 1);
- INSERT INTO PORUDZBINA (uuid, cena, status, vreme_porudzbine, restoran_id, kupac_id) VALUES('d9acb2a2509a4a86a28d388b9a385839', '700', 'U_TRANSPORTU','2021-08-02 20:05:00.000000', 4, 2);
+INSERT INTO PORUDZBINA (uuid, cena, status, vreme_porudzbine, restoran_id, kupac_id) VALUES ('b5acb2a2509a4a86a28d388b9a385839','800', 'CEKA_DOSTAVLJACA','2022-02-02 15:05:00.000000', 2, 1);
+INSERT INTO PORUDZBINA (uuid, cena, status, vreme_porudzbine, restoran_id, kupac_id) VALUES('d5acb2a2509a4a86a28d388b9a385839','500', 'DOSTAVLJENA','2022-03-02 18:05:00.000000', 3, 1);
+INSERT INTO PORUDZBINA (uuid, cena, status, vreme_porudzbine, restoran_id, kupac_id) VALUES('b4acb2a2509a4a86a28d388b9a385839','850', 'U_PRIPREMI','2022-08-02 20:05:00.000000', 1, 1);
+INSERT INTO PORUDZBINA (uuid, cena, status, vreme_porudzbine, restoran_id, kupac_id) VALUES('d6acb2a2509a4a86a28d388b9a385839', '590', 'U_PRIPREMI','2022-01-02 10:05:00.000000', 5, 1);
+INSERT INTO PORUDZBINA (uuid, cena, status, vreme_porudzbine, restoran_id, kupac_id) VALUES('d9acb2a2509a4a86a28d388b9a385839', '700', 'U_TRANSPORTU','2021-08-02 20:05:00.000000', 4, 2);
 
 INSERT INTO STAVKA_PORUDZBINE (kolicina, artikal_id,porudzbina_id) VALUES(5,  1, 'd6acb2a2509a4a86a28d388b9a385839');
 INSERT INTO STAVKA_PORUDZBINE (kolicina, artikal_id,porudzbina_id) VALUES(5,  1, 'd9acb2a2509a4a86a28d388b9a385839');

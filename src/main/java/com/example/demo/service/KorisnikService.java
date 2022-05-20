@@ -37,18 +37,23 @@ public class KorisnikService {
     }
 
 
-    /*public String registracija(Korisnik korisnik){
+    public Korisnik getByKorisnickoIme(String korisnickoIme) {
+        Korisnik korisnik = korisnikRepository.getByKorisnickoIme(korisnickoIme);
+        return korisnik;
+    }
+
+    //registracija
+    /*public String registracija(KorisnikDto korisnik){
         Kupac novi_korisnik = new Kupac(korisnik);
         kupacRepository.save(novi_korisnik);
         return "Registered successfully!!";
     }*/
-    public Korisnik registracija(KorisnikDto k1){
-        if(k1.getUloga()== Uloga.KUPAC){
+
+  /*  public Korisnik registracija(KorisnikDto k1){
+        if(k1.getUloga().equals(Uloga.KUPAC))
             k1.setAktivan(true);
-        }
-        //else if(k1.getUloga() == Uloga.TRENER){
-          //  k1.setAktivan(false);
-       // }
+             else k1.setAktivan(false);
+
         Korisnik korisnik = new Korisnik(
                 k1.getId(),
                 k1.getKorisnickoIme(),
@@ -56,15 +61,16 @@ public class KorisnikService {
                 k1.getLozinka(),
                 k1.getIme(),
                 k1.getPol(),
-                k1.getDatum(),
+                //k1.getDatum(),
+                "",
                 k1.getUloga(),
                 k1.isAktivan()
         );
         korisnikRepository.save(korisnik);
         return korisnik;
-    }
+    }*/
 
-
+//prijava
     public Korisnik login(String korisnickoIme, String lozinka) {
         Korisnik korisnik = korisnikRepository.getByKorisnickoIme(korisnickoIme);
         if(korisnik == null || !korisnik.getLozinka().equals(lozinka))

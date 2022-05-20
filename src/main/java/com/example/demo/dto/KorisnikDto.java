@@ -13,13 +13,21 @@ public class KorisnikDto {
     private String lozinka;
     private String ime;
     private Pol pol;
-    private String datum;
+    private Date datum;
     private Uloga uloga;
     boolean aktivan;
 
-    public KorisnikDto(Long id, String korisnickoIme, String prezime, String lozinka, String ime, Date datum, Uloga uloga, boolean aktivan) {
+    public KorisnikDto(Long id, String korisnickoIme, String prezime, String lozinka, String ime, Pol pol, Date datum, Uloga uloga, boolean aktivan) {
+        this.id = id;
+        this.korisnickoIme = korisnickoIme;
+        this.prezime = prezime;
+        this.lozinka = lozinka;
+        this.ime = ime;
+        this.pol = pol;
+        this.datum = datum;
+        this.uloga = uloga;
+        this.aktivan = aktivan;
     }
-
 
     public boolean isAktivan() {
         return aktivan;
@@ -45,7 +53,7 @@ public class KorisnikDto {
         return ime;
     }
 
-    public String getDatum() {
+    public Date getDatum() {
         return datum;
     }
 
@@ -69,7 +77,7 @@ public class KorisnikDto {
         this.ime = ime;
     }
 
-    public void setDatum(String datum) {
+    public void setDatum(Date datum) {
         this.datum = datum;
     }
 
@@ -93,7 +101,7 @@ public class KorisnikDto {
         return aktivan;
     }
 
-    public KorisnikDto(Long id, String korisnickoIme, String prezime, String lozinka, String ime, String datum, Pol pol, Uloga uloga, boolean aktivan) {
+    public KorisnikDto(Long id, String korisnickoIme, String prezime, String lozinka, String ime, Date datum, Pol pol, Uloga uloga, boolean aktivan) {
         this.id = id;
         this.korisnickoIme = korisnickoIme;
         this.prezime = prezime;

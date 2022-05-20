@@ -12,12 +12,13 @@ public class RegistracijaDto {
     private String lozinka;
     private String ime;
     private Pol pol;
-    private String datum;
+    private Date datum;
     private Uloga uloga;
     boolean aktivan;
 
-    public RegistracijaDto(Long id, String korisnickoIme, String prezime, String lozinka, String ime, Date datum, Uloga uloga, boolean aktivan) {
-    }
+
+    //public RegistracijaDto(Long id, String korisnickoIme, String prezime, String lozinka, String ime, Date datum, Uloga uloga, boolean aktivan) {
+  //  }
 
 
     public boolean isAktivan() {
@@ -44,7 +45,7 @@ public class RegistracijaDto {
         return ime;
     }
 
-    public String getDatum() {
+    public Date getDatum() {
         return datum;
     }
 
@@ -68,7 +69,7 @@ public class RegistracijaDto {
         this.ime = ime;
     }
 
-    public void setDatum(String datum) {
+    public void setDatum(Date datum) {
         this.datum = datum;
     }
 
@@ -92,7 +93,7 @@ public class RegistracijaDto {
         return aktivan;
     }
 
-    public RegistracijaDto(Long id, String korisnickoIme, String prezime, String lozinka, String ime, String datum, Pol pol, Uloga uloga, boolean aktivan) {
+    public RegistracijaDto(Long id, String korisnickoIme, String prezime, String lozinka, String ime, Date datum, Pol pol, Uloga uloga, boolean aktivan) {
         this.id = id;
         this.korisnickoIme = korisnickoIme;
         this.prezime = prezime;

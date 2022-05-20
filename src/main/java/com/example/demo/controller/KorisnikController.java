@@ -4,18 +4,20 @@ import com.example.demo.dto.KorisnikDto;
 import com.example.demo.dto.LoginDto;
 import com.example.demo.dto.RegistracijaDto;
 import com.example.demo.entity.Korisnik;
+import com.example.demo.entity.Kupac;
+import com.example.demo.entity.TipKupca;
+import com.example.demo.entity.Uloga;
 import com.example.demo.service.KorisnikService;
+import com.example.demo.service.KupacService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -24,11 +26,16 @@ public class KorisnikController {
     @Autowired
     private KorisnikService korisnikService;
 
+    @Autowired
+    private KupacService kupacService;
+
+    //pocetna stranica
     @GetMapping("/api/")
     public String welcome(){
         return "Hello from api!";
     }
 
+    //prijava
     @PostMapping("api/login")
     public ResponseEntity<String> login(@RequestBody LoginDto loginDto, HttpSession session){
         // proverimo da li su podaci validni
@@ -43,6 +50,7 @@ public class KorisnikController {
         return ResponseEntity.ok("Successfully logged in!");
     }
 
+    //odjava
     @PostMapping("api/logout")
     public ResponseEntity Logout(HttpSession session){
         Korisnik ulogovaniKorisnik = (Korisnik) session.getAttribute("korisnik");
@@ -53,6 +61,8 @@ public class KorisnikController {
         session.invalidate();
         return new ResponseEntity("Successfully logged out", HttpStatus.OK);
     }
+
+    //listanje svih korisnika
     @GetMapping(value = "api/korisnici", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<KorisnikDto>> getAllKorisnik() {
         List<Korisnik> listaKorisnika = korisnikService.findAll();
@@ -65,8 +75,8 @@ public class KorisnikController {
                     korisnik.getPrezime(),
                     korisnik.getLozinka(),
                     korisnik.getIme(),
-
-                    korisnik.getDatum(),
+                    korisnik.getPol(),
+                    new Date(),
                     korisnik.getUloga(),
                     korisnik.isAktivan()
             );
@@ -78,12 +88,48 @@ public class KorisnikController {
         return new ResponseEntity<>(listaKorisnikDto, HttpStatus.OK);
     }
 
-   /* @PostMapping(value = "api/registration", produces = MediaType.APPLICATION_JSON_VALUE)
+
+    //registracija, sa metodom iz servisa
+  /* @PostMapping(value = "api/registration", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<KorisnikDto> registracija(@RequestBody KorisnikDto k1) {
         Korisnik korisnik = korisnikService.registracija(k1);
         k1.setId(korisnik.getId());
         return new ResponseEntity<>(k1, HttpStatus.CREATED);
     }*/
 
+
+    //registracija+postaje kupac
+    @PostMapping("/api/register")
+    public String registrujKorisnika(@RequestBody RegistracijaDto newDto) {
+
+        Kupac noviKupac = new Kupac();
+        noviKupac.setKorisnickoIme(newDto.getKorisnickoIme());
+        noviKupac.setIme(newDto.getIme());
+        noviKupac.setPrezime(newDto.getPrezime());
+        noviKupac.setDatum(newDto.getDatum());
+        noviKupac.setPol(newDto.getPol());
+        noviKupac.setLozinka(newDto.getLozinka());
+        noviKupac.setUloga(Uloga.KUPAC);
+        noviKupac.setBrojBodova(0);
+
+
+        //noviKupac.setTipkupca(tipKupca);
+        this.kupacService.save(noviKupac);
+
+        return "Korisnik " + newDto.getKorisnickoIme() + " je uspesno registrovan";
+    }
+
+    /*editovanje korisnika
+    @PutMapping("/api/korisnik/edit")
+    public String editKorisnik(@RequestBody Korisnik korisnik) {
+        Korisnik editKorisnik = korisnikService.getByKorisnickoIme(korisnik.getKorisnickoIme());
+        editKorisnik.setIme(korisnik.getIme());
+        editKorisnik.setPrezime(korisnik.getPrezime());
+        editKorisnik.setDatum(korisnik.getDatum());
+        editKorisnik.setLozinka(korisnik.getLozinka());
+        editKorisnik.setPol(korisnik.getPol());
+        this.korisnikService.save(editKorisnik);
+        return "Uspesno sacuvan korisnik!";
+    }*/
 
 }

@@ -16,7 +16,7 @@ public class TipKupca implements Serializable {
     private double procenat;
 
     @Column
-    public static int brojBodova;
+    private static int brojBodova;
 
     public Long getId() {return id;}
 
@@ -30,9 +30,9 @@ public class TipKupca implements Serializable {
 
     public void setProcenat(double procenat) {this.procenat = procenat;}
 
-    public static int getBrojBodova() {return brojBodova;}
+    public int getBrojBodova() {return brojBodova;}
 
-    public static void setBrojBodova(int brojBodova) {TipKupca.brojBodova = brojBodova;}
+    public void setBrojBodova(int brojBodova) {this.brojBodova = brojBodova;}
 
     public TipKupca(Long id, String ime, double procenat) {
         this.id = id;
@@ -41,6 +41,7 @@ public class TipKupca implements Serializable {
     }
 
     public TipKupca() {
+
     }
 }
 
