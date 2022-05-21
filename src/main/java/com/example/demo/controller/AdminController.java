@@ -118,7 +118,17 @@ public class AdminController {
         return new ResponseEntity("Dodali ste restoran", HttpStatus.CREATED);
     }*/
 
+    //admin bira menadzera nadleznog za restoran
+    /*@PostMapping("/api/menadzer/add-restoran")
+    public ResponseEntity<String> dodeliRestoranMenadzeru(@RequestBody RestoranMenadzerDto restoranMenadzerDto) {
 
+        Restoran restoran = restoranService.findOne(restoranMenadzerDto.getRestoranId());
+        Menadzer menadzer = (Menadzer) korisnikService.findOne(restoranMenadzerDto.getMenadzerId());
+        menadzer.setRestoran(restoran);
+        menadzerService.saveMenadzer(menadzer);
+
+        return ResponseEntity.ok("Uspesno dodeljen restoran menadzeru!");
+    }*/
 
 
 

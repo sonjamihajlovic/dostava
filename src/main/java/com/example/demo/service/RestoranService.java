@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RestoranService {
@@ -36,6 +37,14 @@ public class RestoranService {
     public Restoran getByLokacija(Long lokacijaId) {
         Restoran restoran =  restoranRepository.getByLokacijaId(lokacijaId);
         return restoran;
+    }
+
+    public Restoran findOne(Long id) {
+        Optional<Restoran> restoran = restoranRepository.findById(id);
+        if (restoran.isPresent())
+            return restoran.get();
+
+        return null;
     }
 
     public List<Restoran> getByTip(String tip) {

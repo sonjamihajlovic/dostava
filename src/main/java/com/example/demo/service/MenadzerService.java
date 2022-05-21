@@ -1,9 +1,7 @@
 package com.example.demo.service;
 
-import com.example.demo.entity.Korisnik;
-import com.example.demo.entity.Menadzer;
-import com.example.demo.entity.Porudzbina;
-import com.example.demo.entity.Restoran;
+import com.example.demo.entity.*;
+import com.example.demo.repository.ArtikalRepository;
 import com.example.demo.repository.MenadzerRepository;
 import com.example.demo.repository.PorudzbinaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +18,15 @@ public class MenadzerService {
     @Autowired
     private PorudzbinaRepository porudzbinaRepository;
 
+    @Autowired
+    private ArtikalRepository artikalRepository;
+
     public Menadzer save(Menadzer menadzer) {
         return menadzerRepository.save(menadzer);
+    }
+
+    public Artikal saveArtikal(Artikal artikal) {
+        return artikalRepository.save(artikal);
     }
 
     public String dodajMenadzer(Korisnik korisnik){

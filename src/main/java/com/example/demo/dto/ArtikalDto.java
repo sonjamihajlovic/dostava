@@ -9,6 +9,7 @@ public class ArtikalDto {
     private TipArtikla tip;
     private double kolicina;
     private String opis;
+    private Long resId;
 
     public Long getId() {return id;}
 
@@ -34,13 +35,22 @@ public class ArtikalDto {
 
     public void setOpis(String opis) {this.opis = opis;}
 
-    public ArtikalDto(Long id, String naziv, double cena, TipArtikla tip, double kolicina, String opis) {
+    public Long getResId() {
+        return resId;
+    }
+
+    public void setResId(Long resId) {
+        this.resId = resId;
+    }
+
+    public ArtikalDto(Long id, String naziv, double cena, TipArtikla tip, double kolicina, String opis, Long resId) {
         this.id = id;
         this.naziv = naziv;
         this.cena = cena;
         this.tip = tip;
         this.kolicina = kolicina;
         this.opis = opis;
+        this.resId=resId;
     }
 
     public ArtikalDto() {
