@@ -7,6 +7,7 @@ public class RestoranDto {
     private String naziv;
     private String tipRestorana ;
     public Long idLokacija;
+    public String adresa;
 
     public Long getId() {return id;}
 
@@ -32,5 +33,9 @@ public class RestoranDto {
     }
 
     public RestoranDto() {
+    }
+
+    public String getAdresa() {
+        return adresa;
     }
 }

@@ -18,9 +18,6 @@ public class Kupac extends Korisnik implements Serializable {
     public Kupac(KorisnikDto korisnik) {
     }
 
-    // public Kupac(Korisnik korisnik) {
-  //  }
-
     public TipKupca getTipkupca() {
         return tipkupca;
     }

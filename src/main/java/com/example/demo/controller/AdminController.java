@@ -1,14 +1,9 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.KorisnikDto;
-import com.example.demo.entity.Dostavljac;
-import com.example.demo.entity.Korisnik;
-import com.example.demo.entity.Menadzer;
-import com.example.demo.entity.Uloga;
-import com.example.demo.service.AdminService;
-import com.example.demo.service.DostavljacService;
-import com.example.demo.service.KorisnikService;
-import com.example.demo.service.MenadzerService;
+import com.example.demo.dto.RestoranDto;
+import com.example.demo.entity.*;
+import com.example.demo.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.http.HttpStatus;
@@ -37,6 +32,12 @@ public class AdminController {
 
     @Autowired
     private DostavljacService dostavljacService;
+
+    @Autowired
+    private RestoranService restoranService;
+
+    @Autowired
+    private LokacijaService lokacijaService;
 
 
     //pregled svih korisnika od strane admina
@@ -93,5 +94,42 @@ public class AdminController {
         dostavljacService.save(dostavljac);
         return new ResponseEntity("Dodali ste dostavljaca", HttpStatus.CREATED);
     }
+
+    //radi samo prvi deo ifa, treba napraviti kad sme da dodaje restoran
+    /*@PostMapping("/api/add-restoran")
+    public ResponseEntity dodaj_restoran(@RequestBody Restoran restoran, HttpSession session){
+        Korisnik logovani = (Korisnik) session.getAttribute("korisnik");
+        if(logovani.getUloga() != Uloga.ADMIN || logovani == null) {
+            return new ResponseEntity("Nemate prava da dodate restoran", HttpStatus.FORBIDDEN);
+        }
+
+        //Restoran r = new Restoran();
+       // r.setNaziv(restoran.getNaziv());
+        //r.setTipRestorana(restoran.getTipRestorana());
+        //restoran.setLokacija(restoranDto.getAdresa());
+        //Lokacija lokacija=lokacijaService.getLokacijaById(restoranDto.getIdLokacija());
+        //restoran.setLokacija(lokacija);
+
+        Restoran r = new Restoran(restoran);
+        restoranService.save(r);
+
+
+        //this.restoranService.save(r);
+        return new ResponseEntity("Dodali ste restoran", HttpStatus.CREATED);
+    }*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

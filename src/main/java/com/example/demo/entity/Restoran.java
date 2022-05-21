@@ -56,5 +56,17 @@ public class Restoran implements Serializable {
     }
 
     public Restoran() {
+
     }
+
+    public Restoran(Restoran restoran){
+        this.setNaziv(restoran.getNaziv());
+        this.setTipRestorana(restoran.getTipRestorana());
+        this.setLokacija(restoran.getLokacija());
+
+
+
+    }
+
+
 }
