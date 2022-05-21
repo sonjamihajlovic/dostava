@@ -2,15 +2,14 @@ package com.example.demo.controller;
 
 import com.example.demo.dto.ArtikalDto;
 import com.example.demo.entity.*;
+import com.example.demo.service.ArtikalService;
 import com.example.demo.service.MenadzerService;
 import com.example.demo.service.RestoranService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.Set;
@@ -23,6 +22,9 @@ public class MenadzerController {
 
     @Autowired
     private RestoranService restoranService;
+
+    @Autowired
+    private ArtikalService artikalService;
 
     @GetMapping("/api/menadzer/restoran")
     public ResponseEntity<Restoran> getMyRestaurant(HttpSession session){
@@ -69,12 +71,34 @@ public class MenadzerController {
         return new ResponseEntity("Dodali ste artikal", HttpStatus.CREATED);
     }
 
+    //artikal edit
+   /* @PutMapping("/api/izmena-artikla")
+    public String editArtikal(@RequestBody Artikal artikal,  HttpSession session) {
+        Korisnik logovani = (Korisnik) session.getAttribute("korisnik");
+        if(logovani == null || logovani.getUloga() != Uloga.MENADZER) {
+            return "Nemate prava na izmenu artikla";
+            //return new ResponseEntity("Ne mozete da promenite artikal", HttpStatus.FORBIDDEN);
+        }
 
+        Artikal editArtikal = ArtikalService.nadjiArtikal(artikal.getId());
+        editArtikal.setCena(artikal.getCena());
+        editArtikal.setKolicina(artikal.getKolicina());
+        editArtikal.setNaziv(artikal.getNaziv());
+        editArtikal.setOpis(artikal.getOpis());
+        //editArtikal.setTip(artikal.getTip());
+        this.artikalService.save(editArtikal);
+        return "Uspesno ste izmenili artikal";
+       // return new ResponseEntity("Uspesno ste izmenili artikal", HttpStatus.CREATED);
+    }*/
 
-
-
-
-
-
+    @DeleteMapping(value="/api/delete/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity deleteArtikal(@PathVariable Long id){
+        try{
+            artikalService.delete(id);
+            return new ResponseEntity("Artikal uspesno obrisan!", HttpStatus.ACCEPTED);
+        } catch (Exception e){
+            return new ResponseEntity("Artikal sa tim id-jem ne postoji!", HttpStatus.NOT_FOUND);
+        }
+    }
 
 }
