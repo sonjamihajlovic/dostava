@@ -71,10 +71,10 @@ public class MenadzerController {
         return new ResponseEntity("Dodali ste artikal", HttpStatus.CREATED);
     }
 
-    //artikal edit
-   /* @PutMapping("/api/izmena-artikla")
+    //artikal edit-nadjiArtikal u servisu trazi da bude static i nece da radi
+    /*@PutMapping("/api/izmena-artikla")
     public String editArtikal(@RequestBody Artikal artikal,  HttpSession session) {
-        Korisnik logovani = (Korisnik) session.getAttribute("korisnik");
+       /* Korisnik logovani = (Korisnik) session.getAttribute("korisnik");
         if(logovani == null || logovani.getUloga() != Uloga.MENADZER) {
             return "Nemate prava na izmenu artikla";
             //return new ResponseEntity("Ne mozete da promenite artikal", HttpStatus.FORBIDDEN);

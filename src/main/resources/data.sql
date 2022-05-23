@@ -10,7 +10,7 @@ INSERT INTO LOKACIJA(adresa, geografska_duzina, geografska_sirina) VALUES ('Doza
 INSERT INTO LOKACIJA(adresa, geografska_duzina, geografska_sirina) VALUES ('Marka Miljanova 3', 60, 80);
 
 INSERT INTO RESTORAN(naziv, tip_restorana, lokacija_id) VALUES ('Riblji svet', 'GRCKI', 1);
-INSERT INTO RESTORAN(naziv, tip_restorana, lokacija_id) VALUES ('Italiano', 'ITALIJANSKI', 2);
+INSERT INTO RESTORAN(naziv, tip_restorana, lokacija_id, status_restorana) VALUES ('Italiano', 'ITALIJANSKI', 2, 'RADI');
 INSERT INTO RESTORAN(naziv, tip_restorana, lokacija_id) VALUES ('Tortilja', 'MEKSICKI', 3);
 INSERT INTO RESTORAN(naziv, tip_restorana, lokacija_id) VALUES ('Jing Jang', 'KINESKI', 4);
 INSERT INTO RESTORAN(naziv, tip_restorana, lokacija_id) VALUES ('Sarmica', 'SRPSKI', 5);

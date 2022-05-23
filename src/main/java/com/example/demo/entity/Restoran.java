@@ -19,6 +19,10 @@ public class Restoran implements Serializable {
     @Column
     private String tipRestorana ;
 
+    @Column
+    @Enumerated(EnumType.STRING)
+    private StatusRestorana statusRestorana;
+
     @OneToMany( cascade =CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "artikal_id")
     private Set<Artikal> artikli = new HashSet<>();
@@ -47,12 +51,21 @@ public class Restoran implements Serializable {
 
     public void setLokacija(Lokacija lokacija) {this.lokacija = lokacija;}
 
-    public Restoran(Long id, String naziv, String tipr, Set<Artikal> artikli, Lokacija lokacija) {
+    public StatusRestorana getStatusRestorana() {
+        return statusRestorana;
+    }
+
+    public void setStatusRestorana(StatusRestorana statusRestorana) {
+        this.statusRestorana = statusRestorana;
+    }
+
+    public Restoran(Long id, String naziv, String tipr, Set<Artikal> artikli, Lokacija lokacija, StatusRestorana statusRestorana) {
         this.id = id;
         this.naziv = naziv;
         this.tipRestorana = tipr;
         this.artikli = artikli;
         this.lokacija = lokacija;
+        this.statusRestorana=statusRestorana;
     }
 
     public Restoran() {
