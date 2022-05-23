@@ -11,4 +11,6 @@ import java.util.UUID;
 public interface PorudzbinaRepository extends JpaRepository<Porudzbina, UUID> {
 
     public Set<Porudzbina> getByRestoran(Restoran rst);
+
+    public Set<Porudzbina> getByKupac(Set<Porudzbina> svePorudzbine);
 }
