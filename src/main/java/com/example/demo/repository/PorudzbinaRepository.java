@@ -13,4 +13,6 @@ public interface PorudzbinaRepository extends JpaRepository<Porudzbina, UUID> {
     public Set<Porudzbina> getByRestoran(Restoran rst);
 
     public Set<Porudzbina> getByKupac(Set<Porudzbina> svePorudzbine);
+
+    public Set<Porudzbina> getByRestoran(Set<Porudzbina> porudzbine);
 }

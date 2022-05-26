@@ -35,8 +35,7 @@ public class Lokacija implements Serializable {
 
     public void setAdresa(String adresa) {this.adresa = adresa;}
 
-    public Lokacija(Long id, double geografskaSirina, double geografskaDuzina, String adresa) {
-        this.id = id;
+    public Lokacija(double geografskaSirina, double geografskaDuzina, String adresa) {
         this.geografskaSirina = geografskaSirina;
         this.geografskaDuzina = geografskaDuzina;
         this.adresa = adresa;

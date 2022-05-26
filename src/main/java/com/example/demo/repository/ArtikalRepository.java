@@ -8,5 +8,5 @@ import java.util.Optional;
 public interface ArtikalRepository extends JpaRepository<Artikal, Long> {
 
     //Artikal getByNaziv(String naziv);
-    //Artikal findById(Long id);
+    Optional<Artikal> findById(Long id);
 }

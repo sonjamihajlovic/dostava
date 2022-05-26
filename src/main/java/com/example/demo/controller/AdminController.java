@@ -67,12 +67,11 @@ public class AdminController {
             listaKorisnikDto.add(korisnikDto);
         }
 
-        //ako se skonta kako da se doda naslov
-        //new ResponseEntity("Dobili ste spisak korisnika", HttpStatus.OK);
         return new ResponseEntity(listaKorisnikDto, HttpStatus.OK);
 
     }
 
+    //admin dodaje menadzera
     @PostMapping("/api/add-menadzera")
     public ResponseEntity dodaj_menadzera(@RequestBody Korisnik korisnik, HttpSession session){
         Korisnik logovani = (Korisnik) session.getAttribute("korisnik");
@@ -83,6 +82,7 @@ public class AdminController {
         return ResponseEntity.ok(izlaz);
     }
 
+    //admin dodaje dostavljaca
     @PostMapping("/api/add-dostavljaca")
     public ResponseEntity dodaj_dostavljaca(@RequestBody Korisnik korisnik, HttpSession session){
         Korisnik logovani = (Korisnik) session.getAttribute("korisnik");
@@ -95,31 +95,28 @@ public class AdminController {
         return new ResponseEntity("Dodali ste dostavljaca", HttpStatus.CREATED);
     }
 
-    //radi samo prvi deo ifa, treba napraviti kad sme da dodaje restoran
-    /*@PostMapping("/api/add-restoran")
-    public ResponseEntity dodaj_restoran(@RequestBody Restoran restoran, HttpSession session){
+    //admin dodaje restoran
+    @PostMapping("/api/add-restoran")
+    public ResponseEntity dodaj_restoran(@RequestBody RestoranDto restoranDto, HttpSession session){
         Korisnik logovani = (Korisnik) session.getAttribute("korisnik");
         if(logovani.getUloga() != Uloga.ADMIN || logovani == null) {
             return new ResponseEntity("Nemate prava da dodate restoran", HttpStatus.FORBIDDEN);
         }
 
-        //Restoran r = new Restoran();
-       // r.setNaziv(restoran.getNaziv());
-        //r.setTipRestorana(restoran.getTipRestorana());
-        //restoran.setLokacija(restoranDto.getAdresa());
-        //Lokacija lokacija=lokacijaService.getLokacijaById(restoranDto.getIdLokacija());
-        //restoran.setLokacija(lokacija);
+        Restoran r = new Restoran();
+        r.setNaziv(restoranDto.getNaziv());
+        r.setTipRestorana(restoranDto.getTipRestorana());
+        Lokacija lokacija=new Lokacija(0, 0, restoranDto.getAdresa());
+        Lokacija sacuvanaLokacija=lokacijaService.save(lokacija);
+        r.setLokacija(sacuvanaLokacija);
 
-        Restoran r = new Restoran(restoran);
         restoranService.save(r);
 
-
-        //this.restoranService.save(r);
         return new ResponseEntity("Dodali ste restoran", HttpStatus.CREATED);
-    }*/
+    }
 
     //admin bira menadzera nadleznog za restoran
-    /*@PostMapping("/api/menadzer/add-restoran")
+   /* @PostMapping("/api/menadzer/add-restoran")
     public ResponseEntity<String> dodeliRestoranMenadzeru(@RequestBody RestoranMenadzerDto restoranMenadzerDto) {
 
         Restoran restoran = restoranService.findOne(restoranMenadzerDto.getRestoranId());
@@ -128,18 +125,7 @@ public class AdminController {
         menadzerService.saveMenadzer(menadzer);
 
         return ResponseEntity.ok("Uspesno dodeljen restoran menadzeru!");
-    }*/
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
+*/
 }

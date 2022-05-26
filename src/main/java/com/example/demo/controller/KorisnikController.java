@@ -88,16 +88,6 @@ public class KorisnikController {
         return new ResponseEntity<>(listaKorisnikDto, HttpStatus.OK);
     }
 
-
-    //registracija, sa metodom iz servisa
-  /* @PostMapping(value = "api/registration", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<KorisnikDto> registracija(@RequestBody KorisnikDto k1) {
-        Korisnik korisnik = korisnikService.registracija(k1);
-        k1.setId(korisnik.getId());
-        return new ResponseEntity<>(k1, HttpStatus.CREATED);
-    }*/
-
-
     //registracija+postaje kupac
     @PostMapping("/api/register")
     public String registrujKorisnika(@RequestBody RegistracijaDto newDto) {
@@ -112,8 +102,6 @@ public class KorisnikController {
         noviKupac.setUloga(Uloga.KUPAC);
         noviKupac.setBrojBodova(0);
 
-
-        //noviKupac.setTipkupca(tipKupca);
         this.kupacService.save(noviKupac);
 
         return "Korisnik " + newDto.getKorisnickoIme() + " je uspesno registrovan";
@@ -131,18 +119,5 @@ public class KorisnikController {
         this.korisnikService.save(editKorisnik);
         return "Uspesno sacuvan korisnik!";
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

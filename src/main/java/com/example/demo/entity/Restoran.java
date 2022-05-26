@@ -39,7 +39,7 @@ public class Restoran implements Serializable {
 
     public String getNaziv() {return naziv;}
 
-    public void setNaziv(String naziv) {naziv = naziv;}
+    public void setNaziv(String naziv) {this.naziv = naziv;}
 
     public String getTipRestorana() {return tipRestorana;}
 

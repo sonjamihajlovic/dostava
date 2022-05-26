@@ -14,15 +14,15 @@ import java.util.Optional;
 public class ArtikalService {
 
     @Autowired
-    public ArtikalRepository artikalRepository;
+    private ArtikalRepository artikalRepository;
 
-    /*public Artikal nadjiArtikal(Long id) {
-        Optional<Artikal> artikal = Optional.ofNullable(artikalRepository.findById(id));
+    public Artikal nadjiArtikal(Long id) {
+        Optional<Artikal> artikal = artikalRepository.findById(id);
         if (artikal.isPresent())
             return artikal.get();
 
         return null;
-    }*/
+    }
 
     public Artikal save(Artikal artikal) {
         return artikalRepository.save(artikal);

@@ -22,4 +22,6 @@ public class LokacijaService {
     }
 
 
+    public Lokacija save(Lokacija lokacija) { return lokacijaRepository.save(lokacija);
+    }
 }

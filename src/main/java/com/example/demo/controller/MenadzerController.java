@@ -26,6 +26,7 @@ public class MenadzerController {
     @Autowired
     private ArtikalService artikalService;
 
+    //menadzer trazenje restorana
     @GetMapping("/api/menadzer/restoran")
     public ResponseEntity<Restoran> getMyRestaurant(HttpSession session){
         Korisnik logovani = (Korisnik) session.getAttribute("korisnik");
@@ -37,6 +38,7 @@ public class MenadzerController {
         return new ResponseEntity(r, HttpStatus.OK);
     }
 
+    //pregled porudzbina
     @GetMapping("/api/menadzer/porudzbine_restorana")
     public ResponseEntity<Set<Porudzbina>> getMyOrders(HttpSession session){
         Korisnik logovani = (Korisnik) session.getAttribute("korisnik");
@@ -48,7 +50,7 @@ public class MenadzerController {
         return new ResponseEntity<Set<Porudzbina>>(set, HttpStatus.OK);
     }
 
-    //menadzer kreira artikal, treba ga dodati u restoran za koji je zaduzen taj menadzer
+    //menadzer kreira artikal
     @PostMapping("/api/novi-artikal")
     public ResponseEntity napraviArtikal(@RequestBody ArtikalDto artikalDto, HttpSession session) {
         Korisnik logovani = (Korisnik) session.getAttribute("korisnik");
@@ -62,35 +64,29 @@ public class MenadzerController {
         artikal.setTip(artikalDto.getTip());
         artikal.setOpis(artikalDto.getOpis());
         artikal.setKolicina(artikalDto.getKolicina());
-        //artikal.setSlika(artikalDto.getSlika());
-
-        //Restoran restoran = restoranService.findOne(artikalDto.getResId());
-        //artikal.setRestoran(restoran);
 
         this.menadzerService.saveArtikal(artikal);
         return new ResponseEntity("Dodali ste artikal", HttpStatus.CREATED);
     }
 
-    //artikal edit-nadjiArtikal u servisu trazi da bude static i nece da radi
-    /*@PutMapping("/api/izmena-artikla")
+    //editovanje artikla
+    @PutMapping("/api/izmena-artikla")
     public String editArtikal(@RequestBody Artikal artikal,  HttpSession session) {
-       /* Korisnik logovani = (Korisnik) session.getAttribute("korisnik");
+        Korisnik logovani = (Korisnik) session.getAttribute("korisnik");
         if(logovani == null || logovani.getUloga() != Uloga.MENADZER) {
             return "Nemate prava na izmenu artikla";
-            //return new ResponseEntity("Ne mozete da promenite artikal", HttpStatus.FORBIDDEN);
         }
 
-        Artikal editArtikal = ArtikalService.nadjiArtikal(artikal.getId());
+        Artikal editArtikal = artikalService.nadjiArtikal(artikal.getId());
         editArtikal.setCena(artikal.getCena());
         editArtikal.setKolicina(artikal.getKolicina());
         editArtikal.setNaziv(artikal.getNaziv());
         editArtikal.setOpis(artikal.getOpis());
-        //editArtikal.setTip(artikal.getTip());
         this.artikalService.save(editArtikal);
         return "Uspesno ste izmenili artikal";
-       // return new ResponseEntity("Uspesno ste izmenili artikal", HttpStatus.CREATED);
-    }*/
+    }
 
+    //brisanje artikla
     @DeleteMapping(value="/api/delete/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity deleteArtikal(@PathVariable Long id){
         try{
