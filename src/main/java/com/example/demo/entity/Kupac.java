@@ -1,5 +1,7 @@
 package com.example.demo.entity;
 
+import com.example.demo.dto.KorisnikDto;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
@@ -13,13 +15,16 @@ public class Kupac extends Korisnik implements Serializable {
     @ManyToOne(fetch = FetchType.EAGER)
     public  TipKupca tipkupca;
 
+    public Kupac(KorisnikDto korisnik) {
+    }
+
     public TipKupca getTipkupca() {
         return tipkupca;
     }
 
-    public static int getBrojBodova() {return brojBodova;}
+    public int getBrojBodova() {return brojBodova;}
 
-    public static void setBrojBodova(int brojBodova) {Kupac.brojBodova = brojBodova;}
+    public void setBrojBodova(int brojBodova) {this.brojBodova = brojBodova;}
 
     public void setTipkupca(TipKupca tipkupca) {this.tipkupca = tipkupca;}
 
@@ -36,7 +41,9 @@ public class Kupac extends Korisnik implements Serializable {
         this.tipkupca = tipkupca;
     }
 
+
     public Kupac() {
+        
     }
 
 

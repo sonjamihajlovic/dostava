@@ -1,22 +1,13 @@
-package com.example.demo.entity;
+package com.example.demo.dto;
 
-import javax.persistence.*;
-import java.io.Serializable;
+import javax.persistence.Column;
 
-@Entity
-public class Lokacija implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class LokacijaDto {
+
     private Long id;
-
-    //double URADJENO
-    @Column
     public double geografskaSirina;
-
-    @Column
     public double geografskaDuzina;
 
-    @Column(nullable = false)
     public String adresa;
 
     public Long getId() {return id;}
@@ -35,13 +26,13 @@ public class Lokacija implements Serializable {
 
     public void setAdresa(String adresa) {this.adresa = adresa;}
 
-    public Lokacija(double geografskaSirina, double geografskaDuzina, String adresa) {
+    public LokacijaDto(Long id, double geografskaSirina, double geografskaDuzina, String adresa) {
+        this.id = id;
         this.geografskaSirina = geografskaSirina;
         this.geografskaDuzina = geografskaDuzina;
         this.adresa = adresa;
     }
 
-    public Lokacija() {
+    public LokacijaDto() {
     }
 }
-

@@ -28,6 +28,8 @@ public class Artikal implements Serializable {
     @Column
     public String opis;
 
+    //public Restoran restoran;
+
    //@ManyToMany(mappedBy = "poruceniArtikal")
   //  private Set<Porudzbina> svePorudzbine = new HashSet<>();
 

@@ -21,4 +21,16 @@ public class Dostavljac extends Korisnik implements Serializable {
 
     public Dostavljac() {
     }
+
+    public Dostavljac(Korisnik korisnik){
+        this.setUloga(Uloga.DOSTAVLJAC);
+        this.setKorisnickoIme(korisnik.getKorisnickoIme());
+        this.setDatum(korisnik.getDatum());
+        this.setIme(korisnik.getIme());
+        this.setPrezime(korisnik.getPrezime());
+        this.setLozinka(korisnik.getLozinka());
+        this.setPol(korisnik.getPol());
+    }
+
+
 }

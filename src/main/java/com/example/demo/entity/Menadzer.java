@@ -22,4 +22,14 @@ public class Menadzer extends Korisnik implements Serializable {
     public Menadzer() {
     }
 
+    public Menadzer(Korisnik korisnik){
+        this.setUloga(Uloga.MENADZER);
+        this.setKorisnickoIme(korisnik.getKorisnickoIme());
+        this.setDatum(korisnik.getDatum());
+        this.setIme(korisnik.getIme());
+        this.setPrezime(korisnik.getPrezime());
+        this.setLozinka(korisnik.getLozinka());
+        this.setPol(korisnik.getPol());
+    }
+
 }
