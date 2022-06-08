@@ -90,7 +90,7 @@ public class KorisnikController {
 
     //registracija+postaje kupac
     @PostMapping("/api/register")
-    public String registrujKorisnika(@RequestBody RegistracijaDto newDto) {
+    public ResponseEntity registrujKorisnika(@RequestBody RegistracijaDto newDto) {
 
         Kupac noviKupac = new Kupac();
         noviKupac.setKorisnickoIme(newDto.getKorisnickoIme());
@@ -102,9 +102,14 @@ public class KorisnikController {
         noviKupac.setUloga(Uloga.KUPAC);
         noviKupac.setBrojBodova(0);
 
-        this.kupacService.save(noviKupac);
+        try{
+            this.kupacService.save(noviKupac);
+            return new ResponseEntity("Korisnik uspesno registrovan!", HttpStatus.ACCEPTED);
+        } catch (Exception e){
+            return new ResponseEntity("Korisnik neuspesno registrovan!", HttpStatus.NOT_FOUND);
+        }
 
-        return "Korisnik " + newDto.getKorisnickoIme() + " je uspesno registrovan";
+       // return "Korisnik " + newDto.getKorisnickoIme() + " je uspesno registrovan";
     }
 
     //editovanje korisnika

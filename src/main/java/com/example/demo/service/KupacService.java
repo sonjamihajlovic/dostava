@@ -29,6 +29,6 @@ public class KupacService {
     public Set<Porudzbina> izlistajPorudzbine(Korisnik kupac) {
         Kupac kup=kupacRepository.getById(kupac.getId());
         Set<Porudzbina> setp=porudzbinaRepository.getByKupac(kup.getSvePorudzbine());
-        return setp;
+        return kup.getSvePorudzbine();
     }
 }

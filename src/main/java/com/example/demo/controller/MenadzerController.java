@@ -86,7 +86,7 @@ public class MenadzerController {
         return "Uspesno ste izmenili artikal";
     }
 
-    //brisanje artikla
+    //brisanje artikla, mora se obrisati samo iz liste artikala u ponudi
     @DeleteMapping(value="/api/delete/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity deleteArtikal(@PathVariable Long id){
         try{

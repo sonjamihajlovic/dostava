@@ -8,6 +8,8 @@ import com.example.demo.entity.StatusRestorana;
 import java.util.List;
 import java.util.Set;
 
+import static com.example.demo.entity.StatusRestorana.RADI;
+
 public class RestoranDto {
     private Long id;
     private String naziv;

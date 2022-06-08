@@ -4,8 +4,10 @@ import com.example.demo.dto.KorisnikDto;
 import com.example.demo.dto.RestoranDto;
 import com.example.demo.entity.Komentar;
 import com.example.demo.entity.Korisnik;
+import com.example.demo.entity.Lokacija;
 import com.example.demo.entity.Restoran;
 import com.example.demo.service.KomentarService;
+import com.example.demo.service.LokacijaService;
 import com.example.demo.service.RestoranService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,6 +29,9 @@ public class RestoranController {
 
     @Autowired
     public KomentarService komentarService;
+
+    @Autowired
+    public LokacijaService lokacijaService;
 
     //izlistavanje svih restorana, vidljivi svima
     @GetMapping(value = "/api/restorani", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -76,5 +81,12 @@ public class RestoranController {
         return ResponseEntity.ok(restoranDto);
     }
 
+     /*
+    @GetMapping("/{api/restorani-lokacija/{adresa}")
+    public ResponseEntity<Restoran> getByAdresa(String adresa) {
+        Restoran lokacija = restoranService.getByLokacija(adresa);
+        return ResponseEntity.ok(restoran);
+    }
+    */
 
 }

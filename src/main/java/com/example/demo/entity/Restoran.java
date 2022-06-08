@@ -24,7 +24,7 @@ public class Restoran implements Serializable {
     private StatusRestorana statusRestorana;
 
     @OneToMany( cascade =CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "artikal_id")
+    @JoinColumn(name = "restoran_id")
     private Set<Artikal> artikli = new HashSet<>();
 
     @OneToOne
