@@ -1,0 +1,87 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: url('./regi.png') no-repeat;
+    background-size: cover;
+    color: #323630;
+
+}
+
+.registration-form {
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 380px;
+    padding: 16px 32px;
+    background-color: rgba(225,225,225,0.6);
+}
+
+.registration-form h1 {
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 20px 0px 0px 0px;
+    color: #323630;
+
+}
+
+.registration-form p{
+    font-size: 15px;
+    margin: 5px 0;
+
+}
+
+
+.registration-form input {
+    font-size: 16px;
+    padding: 10px 10px;
+    width: 100%;
+    border-radius: 5px;
+    outline: none;
+
+}
+
+.registration-form button {
+    font-size: 18px;
+    font-weight: bold;
+    margin:20px 0px 0px 80px;
+    padding: 10px 15px;
+    width: 160px;
+    border: 0;
+    border-radius: 5px;
+    background-color: deepskyblue;
+    color: #fff;
+
+}
+
+.registration-form button:hover {
+    background-color:rgb(86, 211, 253);
+    position: center;
+    color: black;
+    font-weight: bold;
+}
+
+.registration-form .inline-checkbox{
+    width: 16px;
+    display: inline-block;
+    padding-left: 8px;
+    padding-top: 4px;
+}
+
+
+.registration-form .checkbox-group{
+    margin-top: 10px;
+    background-color: #fff;
+    color: #000;
+    border-radius: 5px;
+    padding: 10px 5px;
+    border-width: 2px;
+    border-style: inset;
+    border-color:  rgb(100, 100, 100);
+}
