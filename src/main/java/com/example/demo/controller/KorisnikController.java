@@ -25,7 +25,6 @@ public class KorisnikController {
 
     @Autowired
     private KorisnikService korisnikService;
-
     @Autowired
     private KupacService kupacService;
 
@@ -124,5 +123,10 @@ public class KorisnikController {
         this.korisnikService.save(editKorisnik);
         return "Uspesno sacuvan korisnik!";
     }
+
+    //-----------------------------------------------
+    //DOPUNA DRUGE TAČKE
+
+
 
 }

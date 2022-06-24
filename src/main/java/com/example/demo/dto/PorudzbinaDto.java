@@ -1,13 +1,13 @@
 package com.example.demo.dto;
 
-import com.example.demo.entity.Kupac;
-import com.example.demo.entity.Restoran;
-import com.example.demo.entity.Status;
+import com.example.demo.entity.*;
 
 import javax.persistence.Column;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 public class PorudzbinaDto {
@@ -17,7 +17,19 @@ public class PorudzbinaDto {
     public Date vremePorudzbine;
     public double cena;
     private Status status;
+    private Set<StavkaPorudzbine> stavke = new HashSet<>();
+    private RestoranDto restoran;
 
+    private KorisnikDto kupac;
+
+
+    public Set<StavkaPorudzbine> getStavke() {
+        return stavke;
+    }
+
+    public void setStavke(Set<StavkaPorudzbine> stavke) {
+        this.stavke = stavke;
+    }
 
     public UUID getUuid() {return uuid;}
 
@@ -51,5 +63,14 @@ public class PorudzbinaDto {
         this.status = status;
     }
     public PorudzbinaDto() {
+    }
+    public PorudzbinaDto(Porudzbina p) {
+        this.stavke = p.getStavke();
+        this.restoran = new RestoranDto(p.getRestoran());
+        this.vremePorudzbine = p.getVremePorudzbine();
+        this.cena = p.getCena();
+        this.kupac = new KorisnikDto(p.getKupac());
+        this.status = p.getStatus();
+        this.uuid = p.getUuid();
     }
 }

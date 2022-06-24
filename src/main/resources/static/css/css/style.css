@@ -10,7 +10,12 @@ body {
 
 
 }
-
+h5 {
+    color: #60e016;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: "Agency FB";
+}
 
 .login-form {
     width: 350px;
@@ -47,8 +52,23 @@ body {
     background-color: rgb(216, 234, 70);
 
 }
-
-
+ button {
+    color: #cae016;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: "Agency FB";
+    margin: 16px 0;
+    padding: 8px 13px;
+    width: 20%;
+    border-radius: 1px;
+    border: 0;
+    background-color: #60e016;
+}
+ button:hover{
+     background-color: rgb(202, 224, 22);
+     color: #e81010;
+     font-weight: bold;
+ }
 .login-form button {
     font-size: 18px;
     margin: 20px 0;
@@ -62,7 +82,7 @@ body {
 
 .login-form button:hover {
     background-color: rgb(202, 224, 22);
-    color: black;
+    color: #e81010;
     font-weight: bold;
 }
 

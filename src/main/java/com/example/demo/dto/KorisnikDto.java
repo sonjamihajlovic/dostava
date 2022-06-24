@@ -1,5 +1,6 @@
 package com.example.demo.dto;
 
+import com.example.demo.entity.Korisnik;
 import com.example.demo.entity.Pol;
 import com.example.demo.entity.Uloga;
 
@@ -112,6 +113,15 @@ public class KorisnikDto {
         this.uloga = uloga;
         this.aktivan = aktivan;
 
+    }
+    public KorisnikDto(Korisnik korisnik){
+        this.id = korisnik.getId();
+        this.korisnickoIme = korisnik.getKorisnickoIme();
+        this.ime = korisnik.getIme();
+        this.prezime = korisnik.getPrezime();
+        this.pol = korisnik.getPol();
+        this.datum = korisnik.getDatum();
+        this.uloga = korisnik.getUloga();
     }
 
     public KorisnikDto() {
