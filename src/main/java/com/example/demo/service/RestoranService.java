@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.*;
+import com.example.demo.repository.ArtikalRepository;
 import com.example.demo.repository.PorudzbinaRepository;
 import com.example.demo.repository.RestoranRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,9 @@ public class RestoranService {
 
     @Autowired
     private PorudzbinaService porudzbinaService;
+
+    @Autowired
+    private ArtikalService artikalService;
 
     public Restoran save(Restoran restoran) {
         return restoranRepository.save(restoran);
@@ -106,6 +110,57 @@ public class RestoranService {
 
     }
 
+
+
+    // BRISANJE ARTIKLA SA BRISANJEM IZ RESTORANA
+
+
+    public void deleteArtikal(Artikal artikal) {
+        artikalService.delete(artikal);
+    }
+
+    public boolean isArtikalURestoranu(Long id1, Long id2) { // id1 za artikal, 2 za restoran
+        Restoran restoran = findRestoranById(id2);
+
+        for (Artikal a : restoran.getArtikli()) {
+            if(a.getId().equals(id1)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Restoran findRestoranById(Long id) {
+        List<Restoran> restorani = restoranRepository.findAll();
+
+        for (Restoran r : restorani) {
+            if (r.getId().equals(id)) {
+                return r;
+            }
+        }
+
+        return null;
+    }
+
+    public ResponseEntity<String> removeArtikal(Long id, HttpSession session) {
+        Korisnik logovani = (Korisnik) session.getAttribute("korisnik");
+        if (logovani.getUloga() != Uloga.MENADZER || logovani == null) {
+            return new ResponseEntity("Nemate prava na brisanje restorana!", HttpStatus.FORBIDDEN);
+        }
+        Menadzer logovaniMenadzer = (Menadzer) logovani;
+        Restoran restoran = logovaniMenadzer.getRestoran();
+
+        for (Artikal artikal : restoran.getArtikli()) {
+            if (artikal.getId().equals(id)) {
+                restoran.getArtikli().remove(artikal);
+                deleteArtikal(artikal); //ne znamo da li treba da se brise i da li ce raditi bez ovoga
+                save(restoran);
+                return ResponseEntity.ok("Uspesno obrisan artikal");
+            }
+        }
+
+        return new ResponseEntity<>("Ne postoji artikal sa tim id-jem za restoran za koji je zaduzen ulogovani menadzer", HttpStatus.NOT_FOUND);
+    }
 
 
 

@@ -23,7 +23,7 @@ public class Restoran implements Serializable {
     @Enumerated(EnumType.STRING)
     private StatusRestorana statusRestorana;
 
-    @OneToMany( cascade =CascadeType.ALL, orphanRemoval = true)
+    @OneToMany( cascade =CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "restoran_id")
     private Set<Artikal> artikli = new HashSet<>();
 

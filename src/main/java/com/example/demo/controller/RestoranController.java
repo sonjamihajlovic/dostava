@@ -104,5 +104,13 @@ public class RestoranController {
         return restoranService.obrisiRestoran(session, id);
     }
 
+    @DeleteMapping("/api/brisanje-artikla/{id}")
+    public ResponseEntity<String> removeArtikal(@PathVariable(name = "id") Long id, HttpSession session) {
+        return restoranService.removeArtikal(id, session);
+    }
+
+
+
+
 
 }

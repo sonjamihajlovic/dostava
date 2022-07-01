@@ -52,4 +52,8 @@ public class PorudzbinaService {
     public List<Porudzbina> findAll() {
         return porudzbinaRepository.findAll();
     }
+
+
+
+
 }

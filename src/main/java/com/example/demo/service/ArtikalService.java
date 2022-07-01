@@ -32,6 +32,10 @@ public class ArtikalService {
         artikalRepository.deleteById(id);
     }
 
+    public void delete(Artikal artikal) {
+        artikalRepository.delete(artikal);
+    }
+
    /* public Artikal getByNaziv(String naziv) {
         Artikal artikal = artikalRepository.getByNaziv(naziv);
         return artikal;

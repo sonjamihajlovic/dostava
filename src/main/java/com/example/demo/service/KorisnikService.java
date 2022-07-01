@@ -1,15 +1,17 @@
 package com.example.demo.service;
 
 import com.example.demo.dto.KorisnikDto;
-import com.example.demo.entity.Korisnik;
-import com.example.demo.entity.Kupac;
-import com.example.demo.entity.TipKupca;
-import com.example.demo.entity.Uloga;
+import com.example.demo.entity.*;
 import com.example.demo.repository.KorisnikRepository;
 import com.example.demo.repository.KupacRepository;
+import com.example.demo.repository.RestoranRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,6 +21,9 @@ public class KorisnikService {
     private KorisnikRepository korisnikRepository;
     @Autowired
     private KupacRepository kupacRepository;
+
+    @Autowired
+    private RestoranRepository restoranRepository;
 
     public Korisnik findOne(Long id){
         Optional<Korisnik> pronadjeniKorisnik = korisnikRepository.findById(id);
@@ -76,6 +81,25 @@ public class KorisnikService {
         if(korisnik == null || !korisnik.getLozinka().equals(lozinka))
             return null;
         return  korisnik;
+    }
+
+    public ResponseEntity<List<Korisnik>> kombPretraga(HttpSession session, String str) {
+        Korisnik logovani = (Korisnik) session.getAttribute("korisnik");
+
+        List<Restoran> listaRestorana = findAllRestoran();
+        List<Restoran> potrebniRestorani = new ArrayList<>();
+
+        for (Restoran restoran : listaRestorana) {
+            if(restoran.getNaziv().contains(str) || restoran.getLokacija().getAdresa().contains(str) || restoran.getTipRestorana().contains(str))
+                potrebniRestorani.add(restoran);
+        }
+
+        return new ResponseEntity(potrebniRestorani, HttpStatus.OK);
+
+    }
+
+    private List<Restoran> findAllRestoran() {
+        return restoranRepository.findAll();
     }
 
 }

@@ -132,7 +132,10 @@ public class KorisnikController {
         return korisnikService.findOne(id);
     }
 
-
+    @GetMapping("/api/restoran-kombinovana-pretraga/{str}")
+    public ResponseEntity<List<Korisnik>> pretragaKorisnika(HttpSession session, @PathVariable String str){
+        return korisnikService.kombPretraga(session, str);
+    }
 
 
 }
