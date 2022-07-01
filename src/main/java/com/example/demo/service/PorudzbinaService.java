@@ -53,7 +53,9 @@ public class PorudzbinaService {
         return porudzbinaRepository.findAll();
     }
 
-
+    public List<Porudzbina> findAllByKupac(Kupac kupac){
+        return porudzbinaRepository.findAllByKupac(kupac);
+    }
 
 
 }

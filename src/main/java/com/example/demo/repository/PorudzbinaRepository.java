@@ -1,5 +1,6 @@
 package com.example.demo.repository;
 
+import com.example.demo.entity.Kupac;
 import com.example.demo.entity.Porudzbina;
 import com.example.demo.entity.Restoran;
 import com.example.demo.entity.Status;
@@ -22,6 +23,8 @@ public interface PorudzbinaRepository extends JpaRepository<Porudzbina, UUID> {
    public List<Porudzbina> findAllByStatus(Status status);
 
    public Optional<Porudzbina> findByUuid(UUID uuid);
+
+    List<Porudzbina> findAllByKupac(Kupac kupac);
 
 
 }

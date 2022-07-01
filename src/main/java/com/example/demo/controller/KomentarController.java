@@ -23,13 +23,13 @@ public class KomentarController {
     @Autowired
     PorudzbinaService porudzbinaService;
 
-    //od ane
+   //a
    /* @PostMapping("/api/komentari/{uuid}")
     public ResponseEntity<String> addComment(@PathVariable(name = "uuid") String uuidPorudzbine, KomentarDto komentarDto, HttpSession session) {
         return komentarService.addComment(UUID.fromString(uuidPorudzbine), komentarDto, session);
     }*/
 
-    //od luke
+  //l
     /*@PostMapping("/api/komentari/{uuid}")
     public ResponseEntity<String> ostaviKomentar(@PathVariable(name = "uuid") String uuidPorudzbine, @RequestBody KomentarDto dto, HttpSession session) {
 

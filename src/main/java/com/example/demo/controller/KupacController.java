@@ -42,6 +42,19 @@ public class KupacController {
     }
 
 
+    //ISPRAVLJENA METODA ZA IZLISTAVANJE SVOJIH PORUDZBINA OD STRANE KUPCA
+    @GetMapping("/api/kupac-porudzbine")
+    public ResponseEntity<List<Porudzbina>> pregledPorudzbinaKupca(HttpSession session){
+        Korisnik logovani = (Korisnik) session.getAttribute("korisnik");
+        if(logovani == null || logovani.getUloga() != Uloga.KUPAC) {
+            return new ResponseEntity("Ne mozete da vidite svoje porudzbine, jer niste kupac", HttpStatus.FORBIDDEN);
+        }
+                Kupac logovanik = (Kupac) session.getAttribute("korisnik");
+                List<Porudzbina> lista = porudzbinaService.findAllByKupac(logovanik);
+                return ResponseEntity.ok(lista);
+    }
+
+
 
 
 
