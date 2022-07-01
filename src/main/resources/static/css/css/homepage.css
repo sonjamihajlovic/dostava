@@ -11,7 +11,7 @@ body {
 
 }
 h3 {
-    color: #ee73ca;
+    color: rgba(230, 130, 238, 0.93);
     font-size: 70px;
     font-weight: bold;
     font-family: "Agency FB";
@@ -33,16 +33,16 @@ p{
 #pomocniP {
     padding-left: 120px;
     font-size: 20px;
-    color: #00b7ff;
+    color: #55e6ec;
 }
 
 img {
-    display: inline-block;
+   /* display: inline-block;*/
     padding-top: 5px;
 
 }
 #okej {
-    color: palevioletred;
+    color: #faa7c1;
     background-color: orange;
 }
 

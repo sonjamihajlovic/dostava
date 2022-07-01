@@ -1,9 +1,6 @@
 package com.example.demo.dto;
 
-import com.example.demo.entity.Artikal;
-import com.example.demo.entity.Komentar;
-import com.example.demo.entity.Lokacija;
-import com.example.demo.entity.StatusRestorana;
+import com.example.demo.entity.*;
 
 import java.util.List;
 import java.util.Set;
@@ -19,6 +16,14 @@ public class RestoranDto {
     public StatusRestorana status;
     public List<Komentar> komentari;
     public Set<Artikal> artikli;
+    private Lokacija lokacija;
+
+    public RestoranDto(Restoran restoran) {
+        this.naziv = restoran.getNaziv();
+        this.tipRestorana = restoran.getTipRestorana();
+        this.lokacija = restoran.getLokacija();
+        this.status = restoran.getStatusRestorana();
+    }
 
     public Long getId() {return id;}
 

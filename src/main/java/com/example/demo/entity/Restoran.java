@@ -30,6 +30,15 @@ public class Restoran implements Serializable {
     @OneToOne
     @JoinColumn(name = "lokacija_id")
     public Lokacija lokacija;
+    public String adresa;
+
+    public String getAdresa() {
+        return adresa;
+    }
+
+    public void setAdresa(String adresa) {
+        this.adresa = adresa;
+    }
 
     public Lokacija getLokacija() {return lokacija;}
 
@@ -59,13 +68,14 @@ public class Restoran implements Serializable {
         this.statusRestorana = statusRestorana;
     }
 
-    public Restoran(Long id, String naziv, String tipr, Set<Artikal> artikli, Lokacija lokacija, StatusRestorana statusRestorana) {
+    public Restoran(Long id, String naziv, String tipr, Set<Artikal> artikli, Lokacija lokacija, StatusRestorana statusRestorana, String adresa) {
         this.id = id;
         this.naziv = naziv;
         this.tipRestorana = tipr;
         this.artikli = artikli;
         this.lokacija = lokacija;
         this.statusRestorana=statusRestorana;
+        this.adresa= lokacija.adresa;
     }
 
     public Restoran() {
@@ -76,7 +86,7 @@ public class Restoran implements Serializable {
         this.setNaziv(restoran.getNaziv());
         this.setTipRestorana(restoran.getTipRestorana());
         this.setLokacija(restoran.getLokacija());
-
+        this.setAdresa(restoran.getLokacija().getAdresa());
 
 
     }

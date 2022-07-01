@@ -48,11 +48,12 @@ public class RestoranController {
     }
 
     //izlistavanje po lokaciji
+    /*
     @GetMapping("/api/restorani-lokacija/{lokacijaId}")
     public ResponseEntity<Restoran> getByNaziv(@PathVariable("lokacijaId") Long lokacijaId) {
         Restoran restoran = restoranService.getByLokacija(lokacijaId);
         return ResponseEntity.ok(restoran);
-    }
+    }*/
 
     //izlistavanje po tipu
     @GetMapping("/api/restorani-tip/{tip}")
@@ -81,12 +82,23 @@ public class RestoranController {
         return ResponseEntity.ok(restoranDto);
     }
 
-     /*
+/*
     @GetMapping("/{api/restorani-lokacija/{adresa}")
     public ResponseEntity<Restoran> getByAdresa(String adresa) {
         Restoran lokacija = restoranService.getByLokacija(adresa);
         return ResponseEntity.ok(restoran);
-    }
-    */
+    }*/
+
+//DODATAK
+
+ @GetMapping("/api/restorani/lokacija/{lokacija}")
+	    public ResponseEntity <Restoran> getByLokacija (@PathVariable String adresa)
+	    {
+	    	Restoran restoran = restoranService.getByAdresa(adresa);
+	    	return ResponseEntity.ok(restoran);
+	    }
+
+
+
 
 }

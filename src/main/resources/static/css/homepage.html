@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:background-color="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Dostava</title>
+    <title>SolTic Dostava</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -15,23 +15,43 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="#">Dostava</a>
+            <a class="navbar-brand" href="#home" class="w3-button w3-bar-item">Home</a>
+            <a class="navbar-brand" href="login.html" type="button" class="w3-button w3-bar-item">Poruči hranu</a>
+            <a class="navbar-brand" href="dostavljac.html" type="button" class="w3-button w3-bar-item">Dostavljači</a>
+            <a class="navbar-brand" href="menadzer.html" type="button" class="w3-button w3-bar-item">Menadžer</a>
+            <a class="navbar-brand" href="admin.html" type="button" class="w3-button w3-bar-item">Administrator</a>
         </div>
-        <ul class="nav navbar-nav">
-            <li class="active" id="okej"><a href="/">Home</a></li>
-            <li><a href="/restorani">Restorani</a></li>
-            <li><a href="/login" id="dugmeLogin">Login</a></li>
-        </ul>
+
     </div>
 </nav>
 
 <div class="container">
-    <h3>Dostava</h3>
-    <p>Nas korisnik postanite  </p><br>
+    <h3>SolTic dostava hrane</h3>
+    <p>Naš korisnik postanite  </p><br>
     <p id = "pomocniP">i gladni ne ostanite!</p>
 </div>
 
-<img src="css/images/telefon.png" style="width:500px;height:400px;">
-<img src="css/images/pica.jpg" style="width:500px;height:400px;">
-<img src="css/images/dostavljac.png" style="width:500px;height:400px;">
+
+<img class="mySlides" src="css/images/pizza.png" style="margin: 10px 10px 20px 800px; width:500px;height:400px;">
+<img class="mySlides" src="css/images/telefon.png" style="margin: 10px 10px 20px 800px; width:400px;height:400px;">
+<img class="mySlides" src="css/images/img.png" style="margin: 10px 10px 20px 800px; width:550px;height:400px;">
+
+<script>
+    // Automatic Slideshow - change image every 3 seconds
+    var myIndex = 0;
+    carousel();
+
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        myIndex++;
+        if (myIndex > x.length) {myIndex = 1}
+        x[myIndex-1].style.display = "block";
+        setTimeout(carousel, 1000);
+    }
+</script>
 </body>
 </html>

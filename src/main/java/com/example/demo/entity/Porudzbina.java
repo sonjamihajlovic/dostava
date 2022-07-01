@@ -54,6 +54,9 @@ public class Porudzbina implements Serializable {
     @ManyToOne(fetch = FetchType.EAGER)
     private Restoran restoran;
 
+    @OneToMany(cascade = CascadeType.ALL) //klasa kao stavka porudzbine kolicina porucenog, dodavanje kolicine
+    private Set<StavkaPorudzbine> stavke = new HashSet<>();
+
     @Column
     public Date vremePorudzbine;
 
@@ -79,6 +82,23 @@ public class Porudzbina implements Serializable {
   //  public Set<Artikal> getPoruceniArtikal() {return poruceniArtikal;}
 
   //  public void setPoruceniArtikal(Set<Artikal> poruceniArtikal) {this.poruceniArtikal = poruceniArtikal;}
+
+
+    public Set<StavkaPorudzbine> getStavkePorudzbina() {
+        return stavkePorudzbina;
+    }
+
+    public void setStavkePorudzbina(Set<StavkaPorudzbine> stavkePorudzbina) {
+        this.stavkePorudzbina = stavkePorudzbina;
+    }
+
+    public Set<StavkaPorudzbine> getStavke() {
+        return stavke;
+    }
+
+    public void setStavke(Set<StavkaPorudzbine> stavke) {
+        this.stavke = stavke;
+    }
 
     public Restoran getRestoran() {return restoran;}
 

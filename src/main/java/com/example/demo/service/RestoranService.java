@@ -33,10 +33,15 @@ public class RestoranService {
         Restoran restoran =  restoranRepository.getByNaziv(naziv);
         return restoran;
     }
-
+/*
     public Restoran getByLokacija(Long lokacijaId) {
         Restoran restoran =  restoranRepository.getByLokacijaId(lokacijaId);
         return restoran;
+    }*/
+
+    public Restoran getByAdresa(String adresa)
+    {
+        return restoranRepository.getByAdresa(adresa);
     }
 
     public Restoran findOne(Long id) {

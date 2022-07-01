@@ -25,7 +25,6 @@ public class KorisnikController {
 
     @Autowired
     private KorisnikService korisnikService;
-
     @Autowired
     private KupacService kupacService;
 
@@ -124,5 +123,22 @@ public class KorisnikController {
         this.korisnikService.save(editKorisnik);
         return "Uspesno sacuvan korisnik!";
     }
+
+<<<<<<< HEAD
+    //DODATAK-PROFIL JEDNOG KORISNIKA
+    @GetMapping("/api/korisnici/{id}")
+    public Korisnik getKorisnik(@PathVariable(name = "id") Long id, HttpSession session) {
+        Korisnik korisnik = (Korisnik) session.getAttribute("korisnik");
+        session.invalidate();
+        return korisnikService.findOne(id);
+    }
+
+
+=======
+    //-----------------------------------------------
+    //DOPUNA DRUGE TAČKE
+>>>>>>> 530fff4347972c8ae8768fb6384d1260271aa0c2
+
+
 
 }
