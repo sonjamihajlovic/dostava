@@ -8,10 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
@@ -114,6 +111,39 @@ public class AdminController {
 
         return new ResponseEntity("Dodali ste restoran", HttpStatus.CREATED);
     }
+
+    @GetMapping("/api/admin-pretraga/{str}")
+    public ResponseEntity<List<Korisnik>> pretragaKorisnika(HttpSession session, @PathVariable String str){
+        return adminService.adminPretraga(session, str);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     //admin bira menadzera nadleznog za restoran
    /* @PostMapping("/api/menadzer/add-restoran")

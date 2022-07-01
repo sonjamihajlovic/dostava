@@ -24,7 +24,7 @@ public class PorudzbinaController {
         //DOPUNA 2. KONTROLNE TACKE
         @GetMapping("/api/dostave")
         public ResponseEntity<Set<PorudzbinaDto>> getPorudzbineDelivery(HttpSession session){
-                Korisnik logovaniKorisnik = (Dostavljac)session.getAttribute("korisnik");
+                Korisnik logovaniKorisnik = (Korisnik)session.getAttribute("korisnik");
                 if(logovaniKorisnik == null || logovaniKorisnik.getUloga() != Uloga.DOSTAVLJAC) {
                         return new ResponseEntity("You are not permmitet to do that!", HttpStatus.FORBIDDEN);
                 }
