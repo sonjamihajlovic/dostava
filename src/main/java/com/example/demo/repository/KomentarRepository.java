@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface KomentarRepository extends JpaRepository<Komentar, Long> {
     List<Komentar> getByRestoranId(Long id);
+
+    Komentar save(Komentar komentar);
 }

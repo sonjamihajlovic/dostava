@@ -1,22 +1,22 @@
 package com.example.demo.service;
 
 import com.example.demo.dto.PorudzbinaDto;
-import com.example.demo.entity.Korisnik;
-import com.example.demo.entity.Porudzbina;
-import com.example.demo.entity.Status;
+import com.example.demo.entity.*;
 import com.example.demo.repository.PorudzbinaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class PorudzbinaService {
 
     @Autowired
     private PorudzbinaRepository porudzbinaRepository;
+
+    @Autowired
+    private KomentarService komentarService;
+
 
     public Set<PorudzbinaDto> PorudzbineDostavljaca (Korisnik korisnik){
         List<Porudzbina> porudzbinas= porudzbinaRepository.findAll();
@@ -28,5 +28,28 @@ public class PorudzbinaService {
             }
         }
         return porudzbinaDtos;
+    }
+
+   // public Porudzbina findByUuid(UUID id) { return porudzbinaRepository.findById(id).get(); }
+
+    public List<Porudzbina> findAllByStatus(Status status){return porudzbinaRepository.findAllByStatus(status);}
+
+
+    public void save(Porudzbina porudzbina){
+        porudzbinaRepository.save(porudzbina);
+    }
+
+    public Porudzbina findOneByUuid(UUID uuid){
+        Optional<Porudzbina> porudzbina = porudzbinaRepository.findByUuid(uuid);
+
+        if(porudzbina.isPresent()){
+            return porudzbina.get();
+        }
+        return null;
+    }
+
+
+    public List<Porudzbina> findAll() {
+        return porudzbinaRepository.findAll();
     }
 }

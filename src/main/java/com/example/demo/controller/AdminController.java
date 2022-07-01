@@ -145,6 +145,11 @@ public class AdminController {
 
 
 
+
+
+
+
+
     //admin bira menadzera nadleznog za restoran
    /* @PostMapping("/api/menadzer/add-restoran")
     public ResponseEntity<String> dodeliRestoranMenadzeru(@RequestBody RestoranMenadzerDto restoranMenadzerDto) {

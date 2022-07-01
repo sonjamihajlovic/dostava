@@ -1,8 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.dto.KorisnikDto;
-import com.example.demo.entity.Korisnik;
-import com.example.demo.entity.Uloga;
+import com.example.demo.entity.*;
 import com.example.demo.repository.KorisnikRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

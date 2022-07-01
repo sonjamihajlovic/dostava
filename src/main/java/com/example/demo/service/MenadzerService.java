@@ -7,6 +7,7 @@ import com.example.demo.repository.PorudzbinaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -45,4 +46,6 @@ public class MenadzerService {
         Set<Porudzbina> setp=porudzbinaRepository.getByRestoran(m.getRestoran());
         return setp;
     }
+
+    public List<Menadzer> findAll() { return menadzerRepository.findAll(); }
 }

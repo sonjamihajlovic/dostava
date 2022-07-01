@@ -1,13 +1,14 @@
 package com.example.demo.service;
 
-import com.example.demo.entity.Korisnik;
-import com.example.demo.entity.Menadzer;
-import com.example.demo.entity.Restoran;
+import com.example.demo.entity.*;
 import com.example.demo.repository.PorudzbinaRepository;
 import com.example.demo.repository.RestoranRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,6 +17,15 @@ public class RestoranService {
 
     @Autowired
     private RestoranRepository restoranRepository;
+
+    @Autowired
+    private KomentarService komentarService;
+
+    @Autowired
+    private MenadzerService menadzerService;
+
+    @Autowired
+    private PorudzbinaService porudzbinaService;
 
     public Restoran save(Restoran restoran) {
         return restoranRepository.save(restoran);
@@ -55,4 +65,56 @@ public class RestoranService {
     public List<Restoran> getByTip(String tip) {
          return restoranRepository.getByTipRestorana(tip);
     }
+
+    public ResponseEntity<String> obrisiRestoran(HttpSession session, Long id) {
+        Korisnik logovani = (Korisnik) session.getAttribute("korisnik");
+        if (logovani.getUloga() != Uloga.ADMIN || logovani == null) {
+            return new ResponseEntity("Nemate prava na brisanje restorana!", HttpStatus.FORBIDDEN);
+        }
+
+      /*  if (restoranRepository.findById(id) == null)
+            return new ResponseEntity("Uneti restoran ne postoji", HttpStatus.BAD_REQUEST);
+*/
+        Restoran restoran = restoranRepository.findById(id).get();
+        //komentar
+        for(Komentar komentar : komentarService.findAll()) {
+            if(komentar.getRestoran().equals(restoran)) {
+                komentar.setRestoran(null);
+                komentarService.save(komentar);
+            }
+        }
+
+        //menadzer
+        for(Menadzer menadzer : menadzerService.findAll()) {
+            if(menadzer.getRestoran().equals(restoran)) {
+                menadzer.setRestoran(null);
+                menadzerService.save(menadzer);
+            }
+        }
+
+        //porudzbina
+        for(Porudzbina porudzbina : porudzbinaService.findAll()) {
+            if(porudzbina.getRestoran().equals(restoran)) {
+                porudzbina.setRestoran(null);
+                porudzbinaService.save(porudzbina);
+            }
+        }
+
+        restoranRepository.delete(restoran);
+        return ResponseEntity.ok("Restoran uspesno obrisan");
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 }
