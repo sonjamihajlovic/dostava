@@ -3,6 +3,7 @@ package com.example.demo.service;
 import com.example.demo.dto.PorudzbinaDto;
 import com.example.demo.entity.*;
 import com.example.demo.repository.PorudzbinaRepository;
+import com.example.demo.repository.StavkaPorudzbineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +16,13 @@ public class PorudzbinaService {
     private PorudzbinaRepository porudzbinaRepository;
 
     @Autowired
+    private StavkaPorudzbineRepository stavkaPorudzbineRepository;
+
+    @Autowired
     private KomentarService komentarService;
 
+    @Autowired
+    private KorisnikService korisnikService;
 
     public Set<PorudzbinaDto> PorudzbineDostavljaca (Korisnik korisnik){
         List<Porudzbina> porudzbinas= porudzbinaRepository.findAll();
@@ -64,5 +70,44 @@ public class PorudzbinaService {
     public Komentar save(Komentar komentar){
         return this.komentarService.save(komentar);
     }
+
+    public Porudzbina findFirstByStatus(Status status, long id){
+        return porudzbinaRepository.findFirstByStatusAndKupacId(status, id);
+    }
+
+    public Porudzbina findByStatus(Kupac kupac, Status status) {
+        for(Porudzbina p : kupac.getSvePorudzbine()){
+            if(p.getStatus() == status){
+                return p;
+            }
+        }
+        return new Porudzbina();
+    }
+
+    public void ukloniArtikal(Porudzbina porudzbina, Kupac kupac, Long id){
+        StavkaPorudzbine sp = new StavkaPorudzbine();
+        for(StavkaPorudzbine a : porudzbina.getStavkePorudzbina()){
+            if(a.getId().equals(id)){
+                sp = a;
+                break;
+            }
+        }
+
+        porudzbina.getStavkePorudzbina().remove(sp);
+
+
+       // sp.getArtikal().remove(sp);
+
+        stavkaPorudzbineRepository.save(sp);
+
+        porudzbinaRepository.save(porudzbina);
+
+        korisnikService.save(kupac, Uloga.KUPAC);
+    }
+
+
+
+
+
 
 }

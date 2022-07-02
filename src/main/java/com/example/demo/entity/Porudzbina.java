@@ -44,7 +44,6 @@ public class Porudzbina implements Serializable {
     @JoinColumn(name = "porudzbina_id")
     private Set<StavkaPorudzbine> stavkePorudzbina = new HashSet<>();
 
-
 //    @ManyToMany
 //    @JoinTable(name = "kupovina",
 //        joinColumns = @JoinColumn(name = "porudzbina_id", referencedColumnName = "uuid"),
@@ -56,8 +55,19 @@ public class Porudzbina implements Serializable {
     @ManyToOne(fetch = FetchType.EAGER)
     private Restoran restoran;
 
-    @OneToMany(cascade = CascadeType.ALL) //klasa kao stavka porudzbine kolicina porucenog, dodavanje kolicine
-    private Set<StavkaPorudzbine> stavke = new HashSet<>();
+    @Column
+    private String korisnickoIme;
+
+    public String getKorisnickoIme() {
+        return korisnickoIme;
+    }
+
+    public void setKorisnickoIme(String korisnickoIme) {
+        this.korisnickoIme = korisnickoIme;
+    }
+
+    // @OneToMany(cascade = CascadeType.ALL) //klasa kao stavka porudzbine kolicina porucenog, dodavanje kolicine
+   // private Set<StavkaPorudzbine> stavke = new HashSet<>();
 
     @Column
     public Date vremePorudzbine;
@@ -70,13 +80,14 @@ public class Porudzbina implements Serializable {
     private Status status;
 
     public Porudzbina(Porudzbina p) {
-        this.stavke = p.getStavke();
+       // this.stavke = p.getStavke();
         this.restoran = new Restoran(p.getRestoran());
         this.vremePorudzbine = p.getVremePorudzbine();
         this.cena = p.getCena();
         this.kupac = p.getKupac();
         this.status = p.getStatus();
         this.uuid = p.getUuid();
+        this.korisnickoIme=p.getKorisnickoIme();
 
 
 
@@ -99,6 +110,10 @@ public class Porudzbina implements Serializable {
   //  public void setPoruceniArtikal(Set<Artikal> poruceniArtikal) {this.poruceniArtikal = poruceniArtikal;}
 
 
+    public void dodajStavku(StavkaPorudzbine novaStavka){
+        this.stavkePorudzbina.add(novaStavka);
+    }
+
     public Set<StavkaPorudzbine> getStavkePorudzbina() {
         return stavkePorudzbina;
     }
@@ -107,14 +122,14 @@ public class Porudzbina implements Serializable {
         this.stavkePorudzbina = stavkePorudzbina;
     }
 
-    public Set<StavkaPorudzbine> getStavke() {
-        return stavke;
-    }
+    //public Set<StavkaPorudzbine> getStavke() {
+     //   return stavke;
+   // }
 
-    public void setStavke(Set<StavkaPorudzbine> stavke) {
-        this.stavke = stavke;
-    }
-
+   // public void setStavke(Set<StavkaPorudzbine> stavke) {
+    //    this.stavke = stavke;
+    //}
+//
     public Restoran getRestoran() {return restoran;}
 
     public void setRestoran(Restoran restoran) {this.restoran = restoran;}
@@ -135,7 +150,7 @@ public class Porudzbina implements Serializable {
 
     public void setStatus(Status status) {this.status = status;}
 
-    public Porudzbina(double cena, Status status) {
+    public Porudzbina(double cena, Status status, String korisnickoIme) {
 //        this.id=id;
         //this.uuid = uuid;
        // this.poruceniArtikal = poruceniArtikal;
@@ -143,8 +158,13 @@ public class Porudzbina implements Serializable {
         this.vremePorudzbine = vremePorudzbine;
         this.cena = cena;
         this.status = status;
+        this.korisnickoIme=korisnickoIme;
     }
     public Porudzbina() {
+        this.restoran = restoran;
+        this.vremePorudzbine = vremePorudzbine;
+        this.cena = cena;
+        this.status = status;
     }
 }
 

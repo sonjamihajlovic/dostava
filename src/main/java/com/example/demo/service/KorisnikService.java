@@ -2,9 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.dto.KorisnikDto;
 import com.example.demo.entity.*;
-import com.example.demo.repository.KorisnikRepository;
-import com.example.demo.repository.KupacRepository;
-import com.example.demo.repository.RestoranRepository;
+import com.example.demo.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,11 +17,18 @@ import java.util.Optional;
 public class KorisnikService {
     @Autowired
     private KorisnikRepository korisnikRepository;
+
     @Autowired
     private KupacRepository kupacRepository;
 
     @Autowired
     private RestoranRepository restoranRepository;
+
+    @Autowired
+    private DostavljacRepository dostavljacRepository;
+
+    @Autowired
+    private MenadzerRepository menadzerRepository;
 
     public Korisnik findOne(Long id){
         Optional<Korisnik> pronadjeniKorisnik = korisnikRepository.findById(id);
@@ -41,6 +46,16 @@ public class KorisnikService {
         return korisnikRepository.save(korisnik);
     }
 
+    public Korisnik save(Korisnik korisnik, Uloga uloga) {
+        if(uloga.equals(Uloga.MENADZER)) {
+            menadzerRepository.save((Menadzer) korisnik);
+        }else if(uloga.equals(Uloga.KUPAC)){
+            kupacRepository.save((Kupac) korisnik);
+        }else if (uloga.equals(Uloga.DOSTAVLJAC)){
+            dostavljacRepository.save((Dostavljac) korisnik);
+        }
+        return korisnikRepository.save(korisnik);
+    }
 
     public Korisnik getByKorisnickoIme(String korisnickoIme) {
         Korisnik korisnik = korisnikRepository.getByKorisnickoIme(korisnickoIme);

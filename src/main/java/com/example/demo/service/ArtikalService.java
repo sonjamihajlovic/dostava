@@ -43,6 +43,15 @@ public class ArtikalService {
         return null;
     }
 
+    public Artikal findById(long id){
+        Optional<Artikal> artikal = artikalRepository.findById(id);
+
+        if(artikal.isPresent()){
+            return artikal.get();
+        }
+        return null;
+    }
+
    /* public Artikal getByNaziv(String naziv) {
         Artikal artikal = artikalRepository.getByNaziv(naziv);
         return artikal;

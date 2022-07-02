@@ -65,7 +65,7 @@ public class PorudzbinaDto {
     public PorudzbinaDto() {
     }
     public PorudzbinaDto(Porudzbina p) {
-        this.stavke = p.getStavke();
+      //  this.stavke = p.getStavke();
         this.restoran = new RestoranDto(p.getRestoran());
         this.vremePorudzbine = p.getVremePorudzbine();
         this.cena = p.getCena();

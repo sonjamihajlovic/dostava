@@ -1,5 +1,7 @@
 package com.example.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -22,6 +24,11 @@ public class Artikal implements Serializable {
     @Enumerated(EnumType.STRING)
     public TipArtikla tip;
 
+    @ManyToOne
+    @JoinColumn(name = "restoran_id")
+    @JsonIgnore
+    private Restoran restoran;
+
     @Column(nullable = false)
     public double kolicina;
 
@@ -33,6 +40,14 @@ public class Artikal implements Serializable {
    //@ManyToMany(mappedBy = "poruceniArtikal")
   //  private Set<Porudzbina> svePorudzbine = new HashSet<>();
 
+
+    public Restoran getRestoran() {
+        return restoran;
+    }
+
+    public void setRestoran(Restoran restoran) {
+        this.restoran = restoran;
+    }
 
     public Long getId() {return id;}
 
