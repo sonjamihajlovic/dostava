@@ -22,6 +22,12 @@ public class PorudzbinaService {
     private KomentarService komentarService;
 
     @Autowired
+    private KupacService kupacService;
+
+    @Autowired
+    private RestoranService restoranService;
+
+    @Autowired
     private KorisnikService korisnikService;
 
     public Set<PorudzbinaDto> PorudzbineDostavljaca (Korisnik korisnik){
@@ -105,9 +111,41 @@ public class PorudzbinaService {
         korisnikService.save(kupac, Uloga.KUPAC);
     }
 
+    public Porudzbina promeniStatusMenadzer(Restoran restoran, String ID){
+        Porudzbina p= null;
+        List<Porudzbina> listaPorudzbina = new ArrayList<>();
+        listaPorudzbina = porudzbinaRepository.findAll();
+        for(Porudzbina porudzbina: listaPorudzbina) {
+            String result = String.valueOf(porudzbina.getUuid());
+            result = result.replaceAll("[-+.^:,]","");
 
+            if (result.equals(ID)) {
+                if (porudzbina.getStatus().equals(Status.OBRADA)) {
+                    p = porudzbina;
+                    p.setStatus(Status.U_PRIPREMI);
+                    porudzbinaRepository.save(p);
+                    restoranService.save(restoran);
+                    return p;
+                }else if(porudzbina.getStatus().equals(Status.U_PRIPREMI)){
+                    p = porudzbina;
+                    p.setStatus(Status.CEKA_DOSTAVLJACA);
+                    porudzbinaRepository.save(p);
+                    restoranService.save(restoran);
+                    return p;
+                }
+            }
+        }
+        return p;
+    }
 
+    public Kupac saveKupac(Porudzbina porudzbina){
 
+        Kupac kupacPorudzbine = porudzbina.getKupac();
+        double bodovi = porudzbina.getCena()/1000*133;
+        kupacPorudzbine.setBrojBodova(kupacPorudzbine.getBrojBodova()+(int)bodovi);
+
+        return this.kupacService.save(kupacPorudzbine);
+    }
 
 
 }

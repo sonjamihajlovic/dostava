@@ -16,7 +16,7 @@ import java.util.Optional;
 @Service
 public class KorisnikService {
     @Autowired
-    private KorisnikRepository korisnikRepository;
+    public KorisnikRepository korisnikRepository;
 
     @Autowired
     private KupacRepository kupacRepository;
@@ -37,6 +37,14 @@ public class KorisnikService {
 
         return null;
     }
+
+   /* public Korisnik findOne(String korisnickoIme){
+        Optional<Korisnik> pronadjenKorisnik = korisnikRepository.getByKorisnickoIme(korisnickoIme);
+        if (pronadjenKorisnik.isPresent())
+            return pronadjenKorisnik.get();
+        return null;
+    }*/
+
 
     public List<Korisnik> findAll(){
         return korisnikRepository.findAll();

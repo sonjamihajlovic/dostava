@@ -2,9 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.dto.ArtikalDto;
 import com.example.demo.entity.*;
-import com.example.demo.service.ArtikalService;
-import com.example.demo.service.MenadzerService;
-import com.example.demo.service.RestoranService;
+import com.example.demo.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -21,7 +19,13 @@ public class MenadzerController {
     private MenadzerService menadzerService;
 
     @Autowired
+    private KorisnikService korisnikService;
+
+    @Autowired
     private RestoranService restoranService;
+
+    @Autowired
+    private PorudzbinaService porudzbinaService;
 
     @Autowired
     private ArtikalService artikalService;
@@ -96,5 +100,55 @@ public class MenadzerController {
             return new ResponseEntity("Artikal sa tim id-jem ne postoji!", HttpStatus.NOT_FOUND);
         }
     }
+
+    @PutMapping("/api/menadzer-menja-status")
+    public ResponseEntity priprema(HttpSession session, String korisnickoIme){
+        Korisnik logovani = (Korisnik) session.getAttribute("korisnik");
+
+        if (logovani == null || logovani.getUloga() != Uloga.MENADZER)
+            return new ResponseEntity("Nemate prava na porucivanje, jer niste kupac.", HttpStatus.FORBIDDEN);
+
+        Kupac kupac = (Kupac) korisnikService.getByKorisnickoIme(korisnickoIme);
+        Menadzer menadzer = (Menadzer) session.getAttribute("korisnik");
+
+        if(porudzbinaService.findByStatus(kupac,Status.OBRADA) != null){
+            Porudzbina porudzbina = porudzbinaService.findByStatus(kupac,Status.OBRADA);
+            porudzbina.setStatus(Status.U_PRIPREMI);
+            porudzbinaService.save(porudzbina);
+            korisnikService.save(kupac, kupac.getUloga());
+            return new ResponseEntity("Porudzbina se priprema.", HttpStatus.OK);
+        }
+
+        if(porudzbinaService.findByStatus(kupac,Status.U_PRIPREMI) != null){
+            Porudzbina porudzbina = porudzbinaService.findByStatus(kupac,Status.U_PRIPREMI);
+            porudzbina.setStatus(Status.CEKA_DOSTAVLJACA);
+            porudzbinaService.save(porudzbina);
+            korisnikService.save(kupac, kupac.getUloga());
+            return new ResponseEntity("Porudzbina ceka dostavljaca.", HttpStatus.OK);
+        }
+        return new ResponseEntity("Porudzbina nije spremna!", HttpStatus.BAD_REQUEST);
+    }
+
+    @PutMapping("/api/menadzer/promeni-status/{id}")
+    public ResponseEntity uPripremi(@PathVariable(name = "id") String id, HttpSession session){
+        Korisnik logovani = (Korisnik) session.getAttribute("korisnik");
+
+        if (logovani == null || logovani.getUloga() != Uloga.MENADZER)
+            return new ResponseEntity("Nemate prava da menjate status, jer niste menadzer.", HttpStatus.FORBIDDEN);
+
+
+        Menadzer menadzer = (Menadzer) logovani;
+        Porudzbina porudzbina = porudzbinaService.promeniStatusMenadzer(menadzer.getRestoran(), id);
+
+
+        return new ResponseEntity("Izmenili ste status porudzbine.", HttpStatus.OK);
+    }
+
+
+
+
+
+
+
 
 }

@@ -166,5 +166,13 @@ public class Porudzbina implements Serializable {
         this.cena = cena;
         this.status = status;
     }
+
+    public double racunajCenu(){
+        cena = 0;
+        for(StavkaPorudzbine s: stavkePorudzbina){
+            cena += (s.getKolicina() * s.getArtikal().getCena());
+        }
+        return cena;
+    }
 }
 
