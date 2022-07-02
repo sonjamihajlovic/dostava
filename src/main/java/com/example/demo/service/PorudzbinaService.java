@@ -57,5 +57,12 @@ public class PorudzbinaService {
         return porudzbinaRepository.findAllByKupac(kupac);
     }
 
+    public List<Porudzbina> findAllByStatusAndKupacid(Status status, long id){
+        return porudzbinaRepository.findAllByStatusAndKupac_Id(status, id);
+    }
+
+    public Komentar save(Komentar komentar){
+        return this.komentarService.save(komentar);
+    }
 
 }

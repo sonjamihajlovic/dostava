@@ -26,5 +26,5 @@ public interface PorudzbinaRepository extends JpaRepository<Porudzbina, UUID> {
 
     List<Porudzbina> findAllByKupac(Kupac kupac);
 
-
+    List<Porudzbina> findAllByStatusAndKupac_Id(Status status, long id);
 }

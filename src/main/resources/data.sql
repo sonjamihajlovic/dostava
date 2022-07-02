@@ -11,14 +11,14 @@ INSERT INTO LOKACIJA(adresa, geografska_duzina, geografska_sirina) VALUES ('Mark
 
 INSERT INTO RESTORAN(naziv, tip_restorana, lokacija_id) VALUES ('Riblji svet', 'GRCKI', 1);
 INSERT INTO RESTORAN(naziv, tip_restorana, lokacija_id, status_restorana) VALUES ('Italiano', 'ITALIJANSKI', 2, 'RADI');
-INSERT INTO RESTORAN(naziv, tip_restorana, lokacija_id) VALUES ('Tortilja', 'MEKSICKI', 3);
+INSERT INTO RESTORAN(naziv, tip_restorana, lokacija_id, status_restorana) VALUES ('Tortilja', 'MEKSICKI', 3, 'NE_RADI');
 INSERT INTO RESTORAN(naziv, tip_restorana, lokacija_id) VALUES ('Jing Jang', 'KINESKI', 4);
 INSERT INTO RESTORAN(naziv, tip_restorana, lokacija_id) VALUES ('Sarmica', 'SRPSKI', 5);
 
-INSERT INTO KORISNIK (aktivan, dtype, korisnicko_ime, lozinka, ime, prezime, pol, datum, uloga, tipKupca_id) VALUES (true,'Kupac','tica', '123123', 'Tijana', 'Varadjanin', 'ZENSKI', '2001-12-18', 'KUPAC',1);
+INSERT INTO KORISNIK (aktivan, dtype, korisnicko_ime, lozinka, ime, prezime, pol, datum, uloga, tipkupca_id) VALUES (true,'Kupac','tica', '123123', 'Tijana', 'Varadjanin', 'ZENSKI', '2001-12-18', 'KUPAC',1);
 INSERT INTO KORISNIK (aktivan, dtype, korisnicko_ime, lozinka, ime, prezime, pol, datum, uloga) VALUES (true,'Dostavljac', 'pera', '567', 'Petar', 'Petrovic', 'MUSKI', '1999-11-01', 'DOSTAVLJAC');
 INSERT INTO KORISNIK (aktivan, dtype, korisnicko_ime, lozinka, ime, prezime, pol, datum, uloga, restoran_id) VALUES (true,'Menadzer', 'luka', 'm222', 'Luka', 'Lukovic', 'MUSKI', '1994-02-03', 'MENADZER', 1);
-//INSERT INTO KORISNIK (aktivan, dtype, korisnicko_ime, lozinka, ime, prezime, pol, datum, uloga, tipKupca_id) VALUES (true,'Kupac', 'sofi', '2233', 'Sofija', 'Mitic', 'ZENSKI', '1998-09-03', 'KUPAC', 2);
+INSERT INTO KORISNIK (aktivan, dtype, korisnicko_ime, lozinka, ime, prezime, pol, datum, uloga, restoran_id) VALUES (true,'Menadzer', 'sofi', '2233', 'Sofija', 'Mitic', 'ZENSKI', '1998-09-03', 'MENADZER', 2);
 //INSERT INTO KORISNIK (aktivan, dtype, korisnicko_ime, lozinka, ime, prezime, pol, datum, uloga, restoran_id) VALUES (false,'Menadzer', 'miki', 'gggg', 'Mirko', 'Mirkic', 'MUSKI', '2000-04-03', 'MENADZER', 4);
 INSERT INTO KORISNIK (aktivan, dtype, korisnicko_ime, lozinka, ime, prezime, pol, datum, uloga) VALUES (false,'Admin','ivka', '456cao', 'Ivana', 'Mirkovic', 'ZENSKI', '1987-10-18', 'ADMIN');
 
@@ -38,7 +38,7 @@ INSERT INTO PORUDZBINA (uuid, cena, status, vreme_porudzbine, restoran_id, kupac
 INSERT INTO PORUDZBINA (uuid, cena, status, vreme_porudzbine, restoran_id, kupac_id) VALUES('d5acb2a2509a4a86a28d388b9a385839','500', 'DOSTAVLJENA','2022-03-02 18:05:00.000000', 3, 1);
 INSERT INTO PORUDZBINA (uuid, cena, status, vreme_porudzbine, restoran_id, kupac_id) VALUES('b4acb2a2509a4a86a28d388b9a385839','850', 'U_PRIPREMI','2022-08-02 20:05:00.000000', 1, 1);
 INSERT INTO PORUDZBINA (uuid, cena, status, vreme_porudzbine, restoran_id, kupac_id) VALUES('d6acb2a2509a4a86a28d388b9a385839', '590', 'U_PRIPREMI','2022-01-02 10:05:00.000000', 5, 1);
-INSERT INTO PORUDZBINA (uuid, cena, status, vreme_porudzbine, restoran_id, kupac_id) VALUES('d9acb2a2509a4a86a28d388b9a385839', '700', 'U_TRANSPORTU','2021-08-02 20:05:00.000000', 4, 2);
+INSERT INTO PORUDZBINA (uuid, cena, status, vreme_porudzbine, restoran_id, kupac_id) VALUES('d9acb2a2509a4a86a28d388b9a385839', '700', 'U_TRANSPORTU','2021-08-02 20:05:00.000000', 4, 1);
 
 INSERT INTO STAVKA_PORUDZBINE (kolicina, artikal_id,porudzbina_id) VALUES(5,  1, 'd6acb2a2509a4a86a28d388b9a385839');
 INSERT INTO STAVKA_PORUDZBINE (kolicina, artikal_id,porudzbina_id) VALUES(5,  1, 'd9acb2a2509a4a86a28d388b9a385839');

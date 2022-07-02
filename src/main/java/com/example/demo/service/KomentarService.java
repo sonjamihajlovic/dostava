@@ -30,7 +30,7 @@ public class KomentarService {
         return komentarRepository.getByRestoranId(RestoranId);
     }
 
-    /*public ResponseEntity<String> addComment(, KomentarDto komentarDto, HttpSession session) {
+   /* public ResponseEntity<String> addComment(, KomentarDto komentarDto, HttpSession session) {
         Korisnik logovani = (Korisnik) session.getAttribute("Korisnik");
         if (logovani.getUloga() != Uloga.KUPAC || logovani == null)
             return new ResponseEntity("Nemate prava da dodate komentar", HttpStatus.FORBIDDEN);

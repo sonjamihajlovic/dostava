@@ -36,6 +36,13 @@ public class ArtikalService {
         artikalRepository.delete(artikal);
     }
 
+    public Artikal findOne(Long id){
+        Optional<Artikal> pronadjenArtikal = artikalRepository.findById(id);
+        if (pronadjenArtikal.isPresent())
+            return pronadjenArtikal.get();
+        return null;
+    }
+
    /* public Artikal getByNaziv(String naziv) {
         Artikal artikal = artikalRepository.getByNaziv(naziv);
         return artikal;

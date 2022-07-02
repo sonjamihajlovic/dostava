@@ -1,11 +1,15 @@
 package com.example.demo.entity;
 
 import com.example.demo.dto.KorisnikDto;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
 
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 @Entity
 public class Kupac extends Korisnik implements Serializable {
     @Column

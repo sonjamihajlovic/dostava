@@ -20,6 +20,9 @@ public class RestoranService {
     private RestoranRepository restoranRepository;
 
     @Autowired
+    private PorudzbinaRepository porudzbinaRepository;
+
+    @Autowired
     private KomentarService komentarService;
 
     @Autowired
@@ -162,7 +165,14 @@ public class RestoranService {
         return new ResponseEntity<>("Ne postoji artikal sa tim id-jem za restoran za koji je zaduzen ulogovani menadzer", HttpStatus.NOT_FOUND);
     }
 
+    public Restoran findOneById(long id){
+        Optional<Restoran> r = restoranRepository.findById(id);
 
+        if(r.isPresent()){
+            return r.get();
+        }
+        return null;
+    }
 
 
 

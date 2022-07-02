@@ -1,5 +1,7 @@
 package com.example.demo.entity;
 
+import com.example.demo.dto.KorisnikDto;
+import com.example.demo.dto.RestoranDto;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
@@ -66,6 +68,19 @@ public class Porudzbina implements Serializable {
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Status status;
+
+    public Porudzbina(Porudzbina p) {
+        this.stavke = p.getStavke();
+        this.restoran = new Restoran(p.getRestoran());
+        this.vremePorudzbine = p.getVremePorudzbine();
+        this.cena = p.getCena();
+        this.kupac = p.getKupac();
+        this.status = p.getStatus();
+        this.uuid = p.getUuid();
+
+
+
+    }
 
     public UUID getUuid() {return uuid;}
 

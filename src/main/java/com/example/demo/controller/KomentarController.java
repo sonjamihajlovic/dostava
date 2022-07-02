@@ -23,14 +23,14 @@ public class KomentarController {
     @Autowired
     PorudzbinaService porudzbinaService;
 
-   //a
-   /* @PostMapping("/api/komentari/{uuid}")
+   /*/a
+    @PostMapping("/api/komentari/{uuid}")
     public ResponseEntity<String> addComment(@PathVariable(name = "uuid") String uuidPorudzbine, KomentarDto komentarDto, HttpSession session) {
         return komentarService.addComment(UUID.fromString(uuidPorudzbine), komentarDto, session);
     }*/
 
   //l
-    /*@PostMapping("/api/komentari/{uuid}")
+    @PostMapping("/api/komentari/{uuid}")
     public ResponseEntity<String> ostaviKomentar(@PathVariable(name = "uuid") String uuidPorudzbine, @RequestBody KomentarDto dto, HttpSession session) {
 
         UUID uuid_porudzbine = UUID.fromString(uuidPorudzbine);
@@ -58,7 +58,7 @@ public class KomentarController {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
         return ResponseEntity.ok("Uspesno dodat komentar!");
-    }*/
+    }
 
 
 
