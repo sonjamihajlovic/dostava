@@ -15,6 +15,15 @@ body{
     margin-left: 628px;
 }
 
+.title1{
+    color: #F5DEB3;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 25px;
+    margin-left: 628px;
+}
+
+
 .table.title{
     color: #F5DEB3;
     font-size: 24px;
@@ -37,6 +46,21 @@ table {
 }
 
 #appointment th {
+    border-left: 1px solid #555;
+    border-right: 1px solid #777;
+    border-top: 1px solid #555;
+    border-bottom: 1px solid #333;
+    box-shadow: inset 0 1px 0 #999;
+    color: #8f8f8f;
+    background-color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 200;
+    padding: 10px 15px;
+    position: relative;
+    text-shadow: 0 1px 0 #000;
+}
+
+#appointment1 th {
     border-left: 1px solid #555;
     border-right: 1px solid #777;
     border-top: 1px solid #555;
@@ -76,6 +100,16 @@ table {
     margin-bottom: 7px;
 }
 
+#appointment1 td{
+    text-align: center;
+    padding: 10px 15px;
+    color: #8f8f8f;
+    font-size: 18px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    margin-bottom: 7px;
+}
+
 #marks td{
     text-align: center;
     padding: 10px 15px;
@@ -90,6 +124,7 @@ table {
     background-color: #F5DEB3;
 }
 
+
 #marks tr:nth-child(odd) {
     background-color: #F5DEB3;
 }
@@ -102,6 +137,11 @@ table {
 }
 
 #appointment tr:hover {
+    background-color:#ffffff;
+}
+
+
+#appointment1 tr:hover {
     background-color:#ffffff;
 }
 
@@ -245,4 +285,16 @@ table {
 
 .open:hover {
     background-color:#ffffff;
+}
+
+#addFitnessCenterForm .inputs select{
+    background: #FFFAFA;
+    font-size: 0.8rem;
+    border-radius: 3px;
+    border: none;
+    padding: 13px 10px;
+    width: 330px;
+    margin-bottom: 20px;
+    box-shadow: inset 0px 2px 3px rgba( 0,0,0,0.1 );
+    clear: both;
 }

@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Brisanje restorana</title>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+    <title>UpdateTrainer</title>
     <link href="css/korisnici.css" rel="stylesheet" />
     <!-- 1. Ukljucivanje jQuery biblioteke -->
     <script src="js/jquery-3.6.0.min.js"></script>
@@ -11,30 +10,43 @@
             O načinu upotrebe pogledati na: https://jqueryvalidation.org/ -->
     <script src="js/jquery.validate.min.js"></script>
     <!-- 3. Ukljucivanje naseg JS fajla -->
-    <script src="js/brisanjerestorana.js"></script>
+    <script src="js/updateartikla.js"></script>
 </head>
 <body>
-
 <div class="container">
 
     <div class = "title">
-        <h1>Brisanje restorana</h1>
+        <h1>Update Artikla</h1>
     </div>
 
-    <form id="obrisiRestoran">
+    <form id="UpdateFitnessCenterForm">
         <div class="sep"></div>
         <div class="inputs">
+
+            <p>
+                <label for="naziv">Naziv:</label>
+                <input id="naziv" type="text" /><br>
+            </p>
+            <p>
+                <label for="cena">Cena:</label>
+                <input id="cena" type="text" /><br>
+            </p>
+            <p>
+                <label>Tip:</label>
+                <select name="position_input" id="position_input1" required multiselect>Tip:
+                    <option>Jelo</option>
+                    <option>Piće</option>
+                </select>
+            </p>
+            <input type="submit" id="button" value="Edit">
+            <h4>Unesite id restorana koji želite da obrišete.</h4>
             <p>
                 <label for="id">ID:</label>
                 <input id="id" type="text" /><br>
             </p>
-            <h4>Unesite id restorana koji želite da obrišete.</h4>
             <button class="search-button">Delete</button>
         </div>
     </form>
 </div>
-</body>
-</html>
-
 </body>
 </html>

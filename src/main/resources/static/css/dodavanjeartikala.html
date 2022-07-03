@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodavanje artikla</title>
+    <link href="css/korisnici.css" rel="stylesheet" />
+    <!-- 1. Ukljucivanje jQuery biblioteke -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <!-- 2. Ukljucivanje jQuery Validate biblioteke za validaciju polja forme (opciono).
+            O načinu upotrebe pogledati na: https://jqueryvalidation.org/ -->
+    <script src="js/jquery.validate.min.js"></script>
+    <!-- 3. Ukljucivanje naseg JS fajla -->
+    <script src="js/dodajartikal.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <div class = "title">
+        <h1>Dodavanje novog artikla</h1>
+    </div>
+
+    <form id="addFitnessCenterForm">
+        <div class="sep"></div>
+        <div class="inputs">
+            <p>
+                <label for="naziv">Naziv:</label>
+                <input id="naziv" type="text" /><br>
+            </p>
+            <p>
+                <label for="cena">Tip Cena:</label>
+                <input id="cena" type="text" /><br>
+            </p>
+            <p>
+                <label>Tip:</label>
+                <select name="position_input" id="position_input1" required multiselect>Tip:
+                    <option>Jelo</option>
+                    <option>Piće</option>
+                </select>
+
+            </p>
+            <p>
+                <label for="kolicina">Količina:</label>
+                <input id="kolicina" type="text" /><br>
+            </p>
+            <p>
+                <label for="opis">Opis:</label>
+                <input id="opis" type="text" /><br>
+            </p>
+
+            <button class="search-button">Add</button>
+
+        </div>
+    </form>
+</div>
+</body>
+</html>
