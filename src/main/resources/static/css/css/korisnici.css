@@ -1,0 +1,248 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #DEB887;
+    color: #000000;
+    font-family: "Trebuchet MS";
+    font-size: 20px;
+}
+
+.title{
+    color: #F5DEB3;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 25px;
+    margin-left: 628px;
+}
+
+.table.title{
+    color: #F5DEB3;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+table {
+
+    background: white;
+    border-collapse: separate;
+    box-shadow: inset 0 1px 0 #fff;
+    font-size: 12px;
+    line-height: 24px;
+    margin-left: -230px;
+    text-align: left;
+    margin-top: 5px;
+    width: 800px;
+}
+
+#appointment th {
+    border-left: 1px solid #555;
+    border-right: 1px solid #777;
+    border-top: 1px solid #555;
+    border-bottom: 1px solid #333;
+    box-shadow: inset 0 1px 0 #999;
+    color: #8f8f8f;
+    background-color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 200;
+    padding: 10px 15px;
+    position: relative;
+    text-shadow: 0 1px 0 #000;
+}
+
+#marks th {
+    border-left: 1px solid #555;
+    border-right: 1px solid #777;
+    border-top: 1px solid #555;
+    border-bottom: 1px solid #333;
+    box-shadow: inset 0 1px 0 #999;
+    color: #8f8f8f;
+    background-color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 200;
+    padding: 10px 15px;
+    position: relative;
+    text-shadow: 0 1px 0 #000;
+}
+
+#appointment td{
+    text-align: center;
+    padding: 10px 15px;
+    color: #8f8f8f;
+    font-size: 18px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    margin-bottom: 7px;
+}
+
+#marks td{
+    text-align: center;
+    padding: 10px 15px;
+    color: #8f8f8f;
+    font-size: 18px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    margin-bottom: 7px;
+}
+
+#appointments tr:nth-child(odd) {
+    background-color: #F5DEB3;
+}
+
+#marks tr:nth-child(odd) {
+    background-color: #F5DEB3;
+}
+
+.main-content {
+    background-color: #DEB887;
+    width: 406px;
+    max-width: 406px;
+    margin : 0 auto;
+}
+
+#appointment tr:hover {
+    background-color:#ffffff;
+}
+
+#marks tr:hover {
+    background-color:#ffffff;
+}
+
+.inputs input[type=text]{
+    margin-top: 2px;
+    background: #FFFAFA;
+    font-size: 0.8rem;
+    border-radius: 2px;
+    border: none;
+    padding: 13px 10px;
+    width: 330px;
+    box-shadow: inset 0px 2px 3px rgba( 0,0,0,0.1 );
+    clear: both;
+}
+
+.search-button{
+    background-color:#E8E8E8;
+    border:2px solid #ffffff;
+    border-radius:15px;
+    color: #8f8f8f;
+    font-size:10px;
+    font-weight:bold;
+    padding:8px 14px;
+}
+
+.search-button:hover {
+    background-color:#ffffff;
+}
+
+.search-button:hover {
+    background-color:#ffffff;
+}
+
+.timeButton{
+    background-color:#E8E8E8;
+    border:2px solid #ffffff;
+    border-radius:15px;
+    color: #8f8f8f;
+    font-size:10px;
+    font-weight:bold;
+    padding:8px 14px;
+}
+
+.timeButton:hover {
+    background-color:#ffffff;
+}
+
+.timeButton:hover {
+    background-color:#ffffff;
+}
+
+.button{
+    background-color:#E8E8E8;
+    border:2px solid #ffffff;
+    border-radius:15px;
+    color: #8f8f8f;
+    font-size:10px;
+    font-weight:bold;
+    padding:8px 14px;
+}
+
+.button:hover {
+    background-color:#ffffff;
+}
+
+.button:hover {
+    background-color:#ffffff;
+}
+
+.apply{
+    background-color:#E8E8E8;
+    border:2px solid #ffffff;
+    border-radius:15px;
+    color: #8f8f8f;
+    font-size:10px;
+    font-weight:bold;
+    padding:8px 14px;
+}
+
+.apply:hover {
+    background-color:#ffffff;
+}
+
+.apply:hover {
+    background-color:#ffffff;
+}
+
+.cancel{
+    background-color:#E8E8E8;
+    border:2px solid #ffffff;
+    border-radius:15px;
+    color: #8f8f8f;
+    font-size:10px;
+    font-weight:bold;
+    padding:8px 14px;
+}
+
+.cancel:hover {
+    background-color:#ffffff;
+}
+
+.cancel:hover {
+    background-color:#ffffff;
+}
+
+.seeMarks{
+    background-color:#E8E8E8;
+    border:2px solid #ffffff;
+    border-radius:15px;
+    color: #8f8f8f;
+    font-size:10px;
+    font-weight:bold;
+    padding:8px 14px;
+}
+
+.seeMarks:hover {
+    background-color:#ffffff;
+}
+
+.seeMarks:hover {
+    background-color:#ffffff;
+}
+
+.open{
+    background-color:#E8E8E8;
+    border:2px solid #ffffff;
+    border-radius:15px;
+    color: #8f8f8f;
+    font-size:10px;
+    font-weight:bold;
+    padding:8px 14px;
+}
+
+.open:hover {
+    background-color:#ffffff;
+}
+
+.open:hover {
+    background-color:#ffffff;
+}

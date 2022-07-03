@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodela menadzera restoranu</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+    <link href="css/korisnici.css" rel="stylesheet" />
+    <!-- 1. Ukljucivanje jQuery biblioteke -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <!-- 2. Ukljucivanje jQuery Validate biblioteke za validaciju polja forme (opciono).
+            O načinu upotrebe pogledati na: https://jqueryvalidation.org/ -->
+    <script src="js/jquery.validate.min.js"></script>
+    <!-- 3. Ukljucivanje naseg JS fajla -->
+    <script src="js/dodelimenadzera.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <div class = "title">
+        <h1>Dodela menadzera restoranu</h1>
+    </div>
+
+    <form id="obrisiRestoran">
+        <div class="sep"></div>
+        <div class="inputs">
+            <p>
+                <label for="id">ID:</label>
+                <input id="id" type="text" /><br>
+            </p>
+            <h4>Unesite id restorana koji želite da obrišete.</h4>
+            <input type="submit" id="button" value="Delete">
+        </div>
+    </form>
+</div>
+</body>
+</html>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodavanje novog zaposlenog</title>
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- 1. Ukljucivanje jQuery biblioteke -->
+    <script src="js/jquery.min.js"></script>
+    <!-- 2. Ukljucivanje jQuery Validate biblioteke za validaciju polja forme (opciono).
+            O načinu upotrebe pogledati na: https://jqueryvalidation.org/ -->
+    <script src="js/jquery.validate.min.js"></script>
+    <!-- 3. Ukljucivanje naseg JS fajla -->
+    <script src="js/dodajzaposlenog.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <div class = "title">
+        <h1>Dodavanje novog zaposlenog</h1>
+    </div>
+
+    <form id="addZaposlenog">
+        <div class="sep"></div>
+        <div class="inputs">
+            <p>
+                <label for="ime">Ime:</label>
+                <input id="ime" type="text" /><br>
+            </p>
+            <p>
+                <label for="prezime">Prezime:</label>
+                <input id="prezime" type="text" /><br>
+            </p>
+            <p>
+                <label for="korisnickoIme">Korisnicko ime:</label>
+                <input id="korisnickoIme" type="text" /><br>
+            </p>
+            <p>
+                <label for="lozinka">Lozinka:</label>
+                <input id="lozinka" type="text" /><br>
+            </p>
+
+            <label>Pol: </label>
+            <select name="position_input" id="position_input" required multiselect>Pol:
+                <option>Muški</option>
+                <option>Ženski</option>
+            </select>
+            <br/>
+            <br/>
+
+            <p>
+                <label for="datumField_input">Date: </label>
+                <input id="datumField_input"  type="date" name="datumField_input" />
+            </p>
+
+
+            <label>Uloga: </label>
+            <select name="position_input" id="position_input1" required multiselect>Uloga:
+                <option>Dostavljač</option>
+                <option>Menadžer</option>
+            </select>
+            <br/>
+            <br/>
+
+            <input type="submit" id="button" value="Add">
+        </div>
+    </form>
+</div>
+</body>
+</html>

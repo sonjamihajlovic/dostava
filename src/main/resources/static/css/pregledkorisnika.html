@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Korisnici</title>
+    <link rel="stylesheet" href="css/korisnici.css" />
+    <!-- 1. Ukljucivanje jQuery biblioteke -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <!-- 2. Ukljucivanje jQuery Validate biblioteke za validaciju polja forme (opciono).
+            O načinu upotrebe pogledati na: https://jqueryvalidation.org/ -->
+    <script src="js/jquery.validate.min.js"></script>
+    <!-- 3. Ukljucivanje naseg JS fajla -->
+    <script src="js/korisnici.js"></script>
+
+</head>
+<body>
+
+<form>
+    <div class="inputs">
+        <input name="textbox_input" type="text" id="textbox_input_name" placeholder="pretrazi korisnike po imenu/prezimenu/korisnickom imenu..."><br><br>
+    </div>
+</form>
+
+
+
+<button class="search-button">Submit</button>
+
+<div id="allAppointments">
+    <div class = "title">
+        <h1>Korisnici</h1>
+    </div>
+    <br><br>
+    <div class="main-content">
+        <table id="appointment">
+
+            <thead>
+
+            <tr>
+                <th>Ime</th>
+                <th>Prezime</th>
+                <th>Korisnicko ime</th>
+                <th>Uloga</th>
+                <th>Datum rodjenja</th>
+                <th>Pol</th>
+
+            </tr>
+
+            </thead>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

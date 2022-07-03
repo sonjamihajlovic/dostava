@@ -12,17 +12,9 @@ $(document).on("submit", "#registracija", function (event) {
     let sex = $("#sex").is(":checked")?"ZENSKI":"MUSKI";
 
 
-    let newEmployee = {
-        ime,
-        prezime,
-        korisnickoIme,
-        //email,
-        lozinka,
-        //kontakt,
-        datum,
-        //uloga
-        pol
-    }
+    let newEmployee = formToJson1(ime, prezime, korisnickoIme, lozinka, datum, sex);
+
+
 
 
     $.ajax({
@@ -42,3 +34,28 @@ $(document).on("submit", "#registracija", function (event) {
         }
     });
 });
+
+
+function formToJson1(ki,loz,im,prez,pol,dR)
+{
+    return JSON.stringify(
+        {
+            "korisnickoIme":ki,
+            "lozinka":loz,
+            "ime":im,
+            "prezime":prez,
+            "sex":pol,
+            "datum":dR
+        }
+    );
+}
+
+function formToJson2(ki,loz)
+{
+    return JSON.stringify(
+        {
+            "korisnickoIme":ki,
+            "password":loz
+        }
+    );
+}
