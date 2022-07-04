@@ -11,7 +11,7 @@
 <body>
 <div class = "registration-form">
     <h1>Registration form</h1>
-    <form action="#" method="post">
+    <form action="#addzaposlenog" method="post">
         <p>First Name: </p>
         <input type="text" name="fname" placeholder="First name" required>
         <p>Last Name: </p>
@@ -22,16 +22,15 @@
         <input type="password" name="password" placeholder="password" required>
         <p>Date of birth: </p>
         <input type="date" name="birthdate" placeholder="Date of birth" required>
-        <p>Sex: </p>
-        <div class="checkbox-group">
-            <span>FEMALE </span>
-            <input class="inline-checkbox" type="checkbox" name="Role" placeholder="role" required>
-        </div>
-        <div class="checkbox-group">
-            <span>MALE </span>
-            <input class="inline-checkbox" type="checkbox" name="Role" placeholder="role" required>
-        </div>
+
+        <label>Pol: </label>
+        <select name="position_input" id="position_input" required multiselect>Pol:
+            <option>Muški</option>
+            <option>Ženski</option>
+        </select>
+
         <button type="submit">Registration</button>
+
     </form>
 </div>
 </body>

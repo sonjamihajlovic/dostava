@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Korisnici</title>
+    <link rel="stylesheet" href="css/korisnici.css" />
+    <!-- 1. Ukljucivanje jQuery biblioteke -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <!-- 2. Ukljucivanje jQuery Validate biblioteke za validaciju polja forme (opciono).
+            O načinu upotrebe pogledati na: https://jqueryvalidation.org/ -->
+    <script src="js/jquery.validate.min.js"></script>
+    <!-- 3. Ukljucivanje naseg JS fajla -->
+    <script src="js/korisnici.js"></script>
+
+</head>
+<body>
+
+
+
+<div id="allAppointments">
+    <div class = "title">
+        <h1>Artikli</h1>
+    </div>
+    <br><br>
+    <div class="main-content">
+        <table id="appointment">
+
+            <thead>
+
+            <tr>
+                <th>Naziv</th>
+                <th>Cena</th>
+                <th>Tip</th>
+                <th>Količina</th>
+                <th>Opis</th>
+
+
+            </tr>
+            </thead>
+        </table>
+        <h3>Izbrišite artikal iz korpe</h3>
+        <form>
+            <div class="inputs">
+                <input name="textbox_input" type="text" id="textbox_input_name" placeholder="pretrazi artikal po id-u..."><br><br>
+            </div>
+        </form>
+
+
+
+
+        <button class="search-button">Delete</button>
+
+
+
+
+    </div>
+</div>
+
+</body>
+</html>

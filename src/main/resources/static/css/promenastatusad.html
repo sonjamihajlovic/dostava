@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promena statusa poružbine</title>
+    <link href="css/korisnici.css" rel="stylesheet" />
+    <!-- 1. Ukljucivanje jQuery biblioteke -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <!-- 2. Ukljucivanje jQuery Validate biblioteke za validaciju polja forme (opciono).
+            O načinu upotrebe pogledati na: https://jqueryvalidation.org/ -->
+    <script src="js/jquery.validate.min.js"></script>
+    <!-- 3. Ukljucivanje naseg JS fajla -->
+    <script src="js/promenistatusp.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <div class = "title">
+        <h2>Promena statusa poružbine</h2>
+    </div>
+
+    <form id="addFitnessCenterForm">
+        <div class="sep"></div>
+        <div class="inputs">
+            <h4>Unesite Uuid porudžbine kojoj želite da promenite status.</h4>
+            <p>
+                <label for="id">UUID:</label>
+                <input id="id" type="text" /><br>
+            </p>
+            <p>
+                <label>STATUS:</label>
+                <select name="position_input" id="position_input1" required multiselect>Tip:
+                    <option>U transportu</option>
+                    <option>Dostavljena</option>
+                </select>
+
+                <button class="search-button">Submit</button>
+
+        </div>
+    </form>
+</div>
+</body>
+</html>
